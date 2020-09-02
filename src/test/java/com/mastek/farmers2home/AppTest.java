@@ -1,4 +1,4 @@
-package org.example;
+package com.mastek.farmers2home;
 
 import static org.junit.Assert.assertTrue;
 

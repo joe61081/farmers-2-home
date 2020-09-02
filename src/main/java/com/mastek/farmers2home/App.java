@@ -1,4 +1,4 @@
-package org.example;
+package com.mastek.farmers2home;
 
 /**
  * Hello world!
