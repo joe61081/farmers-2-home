@@ -1,7 +1,13 @@
 package com.mastek.farmers2home.customer;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="customer")
 public class Customer {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     int customerId;
     String customerName;
     String customerAddress;
