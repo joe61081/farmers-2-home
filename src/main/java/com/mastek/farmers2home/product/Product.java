@@ -1,6 +1,6 @@
 package com.mastek.farmers2home.product;
 
-public class Products {
+public class Product {
 	int productId;
 	String productName;
 	String productDesc;
@@ -59,7 +59,7 @@ public class Products {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Products other = (Products) obj;
+		Product other = (Product) obj;
 		if (productId != other.productId)
 			return false;
 		return true;

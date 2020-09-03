@@ -5,7 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 
 @Entity
-public class Orders {
+public class Order {
 	int OrderId;
 	double OrderPrice;
 	orderStatus OrderStatus;

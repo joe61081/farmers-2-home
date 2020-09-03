@@ -3,7 +3,7 @@ package com.mastek.farmers2home.payment;
 import javax.persistence.Entity;
 
 @Entity
-public class Payments {
+public class Payment {
 	int PaymentId;
 	double TotalPaid;
 	PaymentType PaymentType;
