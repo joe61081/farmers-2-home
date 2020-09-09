@@ -5,14 +5,15 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.criteria.Order;
 import javax.xml.bind.annotation.XmlTransient;
 
 import com.mastek.farmers2home.order.Orders;
 
+@Entity
 @Table(name="Products")
 public class Products {
 	int productId;
