@@ -2,10 +2,7 @@ package com.mastek.farmers2home.order;
 
 import com.mastek.farmers2home.product.Product;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.Objects;
 
@@ -13,9 +10,19 @@ import java.util.Objects;
 @Table(name="ProductOrderJoin")
 public class OrderItem {
 
+    private int orderItemId;
     private Order assignedOrder;
     private Product assignedProduct;
     private int quantity;
+
+    @Id
+    public int getOrderItemId() {
+        return orderItemId;
+    }
+
+    public void setOrderItemId(int orderItemId) {
+        this.orderItemId = orderItemId;
+    }
 
     @ManyToOne
     @JoinColumn(name="fk_orderId")

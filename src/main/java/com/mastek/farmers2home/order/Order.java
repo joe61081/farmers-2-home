@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import com.mastek.farmers2home.customer.Customer;
 
 @Entity
-@Table(name="Order")
+@Table(name="customer_orders")
 public class Order {
 	
 	int orderId;
