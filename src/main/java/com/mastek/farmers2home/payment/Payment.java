@@ -2,6 +2,8 @@ package com.mastek.farmers2home.payment;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -53,6 +55,7 @@ public class Payment {
 	public void setTotalPaid(double totalPaid) {
 		TotalPaid = totalPaid;
 	}
+	@Enumerated(EnumType.STRING)
 	public PaymentType getPaymentType() {
 		return PaymentType;
 	}
