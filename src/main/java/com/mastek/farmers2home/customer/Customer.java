@@ -6,13 +6,15 @@ import javax.persistence.*;
 @Table(name="customer")
 public class Customer {
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
     int customerId;
     String customerName;
     String customerAddress;
     String customerContact;
-
+ 
+   
+    @Id
+    @Column(name="customer_id")
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     public int getCustomerId() {
         return customerId;
     }
