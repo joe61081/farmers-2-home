@@ -17,7 +17,6 @@ import javax.persistence.Table;
 @Table(name="payment")
 public class Payment {
 	
-	
 	int PaymentId;
 	double TotalPaid;
 	PaymentType PaymentType;
@@ -29,12 +28,10 @@ public class Payment {
 	Order currentorder;
 	
 	@OneToOne
-	@JoinColumn(name ="fk_order_id")
-	
+	@JoinColumn(name = "fk_order_id")
 	public Order getCurrentorder() {
 		return currentorder;
 	}
-
 	public void setCurrentorder(Order currentorder) {
 		this.currentorder = currentorder;
 	}
@@ -45,7 +42,6 @@ public class Payment {
 	public int getPaymentId() {
 		return PaymentId;
 	}
-
 	public void setPaymentId(int paymentId) {
 		PaymentId = paymentId;
 	}
@@ -114,9 +110,4 @@ public class Payment {
 				+ ", AccountNumber=" + AccountNumber + "]";
 	}
 	
-	
-	
-	
-	
-
 }

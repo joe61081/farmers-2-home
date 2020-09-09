@@ -2,11 +2,15 @@ package com.mastek.farmers2home.order;
 
 import com.mastek.farmers2home.product.Product;
 
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.Objects;
 
+@Entity
+@Table(name="ProductOrderJoin")
 public class OrderItem {
 
     private Order assignedOrder;

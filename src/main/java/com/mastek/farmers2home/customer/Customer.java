@@ -15,6 +15,7 @@ public class Customer {
     private String customerName;
     private String customerAddress;
     private String customerContact;
+    
     private Set<Order> orders = new HashSet<>();
 
     @Id
@@ -51,7 +52,7 @@ public class Customer {
         this.customerContact = customerContact;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerAssigned")
     @XmlTransient
     public Set<Order> getOrders() {
         return orders;
