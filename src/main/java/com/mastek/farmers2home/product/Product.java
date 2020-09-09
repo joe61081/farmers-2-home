@@ -7,10 +7,12 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlTransient;
 
+import com.mastek.farmers2home.farmer.Farmer;
 import com.mastek.farmers2home.order.Order;
 
 @Entity
@@ -24,7 +26,16 @@ public class Product {
 	int stockQuantity;
 	
 	Set <Order> orderItemAssigned = new HashSet<>();
+	Set<Farmer> farmerAssigned = new HashSet<>();
 	
+	@ManyToMany(mappedBy="productAssigned")
+	@XmlTransient
+	public Set<Farmer> getFarmerAssigned() {
+		return farmerAssigned;
+	}
+	public void setFarmerAssigned(Set<Farmer> farmerAssigned) {
+		this.farmerAssigned = farmerAssigned;
+	}
 	@OneToMany(mappedBy = "orderAssigned", cascade = CascadeType.ALL)
 	@XmlTransient
 	public Set<Order> getOrderItemAssigned() {
