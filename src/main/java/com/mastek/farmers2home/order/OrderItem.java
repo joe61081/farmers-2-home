@@ -1,25 +1,35 @@
 package com.mastek.farmers2home.order;
 
+import com.mastek.farmers2home.product.Product;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import java.util.Objects;
+
 public class OrderItem {
 
-    int orderId;
-    int productId;
-    int quantity;
+    private Order assignedOrder;
+    private Product assignedProduct;
+    private int quantity;
 
-    public int getOrderId() {
-        return orderId;
+    @ManyToOne
+    @JoinColumn(name="fk_orderId")
+    public Order getAssignedOrder() {
+        return assignedOrder;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setAssignedOrder(Order assignedOrder) {
+        this.assignedOrder = assignedOrder;
     }
 
-    public int getProductId() {
-        return productId;
+    @ManyToOne
+    @JoinColumn(name="fk_productId")
+    public Product getAssignedProduct() {
+        return assignedProduct;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setAssignedProduct(Product assignedProduct) {
+        this.assignedProduct = assignedProduct;
     }
 
     public int getQuantity() {
@@ -29,34 +39,27 @@ public class OrderItem {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    
+
     @Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + orderId;
-		return result;
-	}
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OrderItem orderItem = (OrderItem) o;
+        return quantity == orderItem.quantity &&
+                Objects.equals(assignedOrder, orderItem.assignedOrder) &&
+                Objects.equals(assignedProduct, orderItem.assignedProduct);
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		OrderItem other = (OrderItem) obj;
-		if (orderId != other.orderId)
-			return false;
-		return true;
-	}
+    @Override
+    public int hashCode() {
+        return Objects.hash(assignedOrder, assignedProduct, quantity);
+    }
 
-	@Override
+    @Override
     public String toString() {
         return "OrderItem{" +
-                "orderId=" + orderId +
-                ", productId=" + productId +
+                "assignedOrder=" + assignedOrder +
+                ", assignedProduct=" + assignedProduct +
                 ", quantity=" + quantity +
                 '}';
     }

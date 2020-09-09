@@ -1,19 +1,22 @@
 package com.mastek.farmers2home.customer;
 
+import com.mastek.farmers2home.order.Order;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="customer")
 public class Customer {
 
-    int customerId;
-    String customerName;
-    String customerAddress;
-    String customerContact;
- 
-   
+    private int customerId;
+    private String customerName;
+    private String customerAddress;
+    private String customerContact;
+    private Set<Order> orders = new HashSet<>();
+
     @Id
-    @Column(name="customer_id")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     public int getCustomerId() {
         return customerId;
@@ -45,6 +48,15 @@ public class Customer {
 
     public void setCustomerContact(String customerContact) {
         this.customerContact = customerContact;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
     }
 
     @Override
