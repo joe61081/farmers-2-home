@@ -15,6 +15,7 @@ import com.mastek.farmers2home.order.Order;
 @Table(name="payment")
 public class Payment {
 	
+	
 	int PaymentId;
 	double TotalPaid;
 	PaymentType PaymentType;
@@ -81,6 +82,27 @@ public class Payment {
 	}
 	public void setAccountNumber(long accountNumber) {
 		AccountNumber = accountNumber;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + PaymentId;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Payment other = (Payment) obj;
+		if (PaymentId != other.PaymentId)
+			return false;
+		return true;
 	}
 	@Override
 	public String toString() {

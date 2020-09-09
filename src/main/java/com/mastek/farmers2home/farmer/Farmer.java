@@ -1,5 +1,14 @@
 package com.mastek.farmers2home.farmer;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="farmer")
 public class Farmer {
 
 	int farmerId;
@@ -11,6 +20,9 @@ public class Farmer {
 	public Farmer() {
 	}
 	
+@Id
+@Column(name="farmer_id")
+@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getFarmerId() {
 		return farmerId;
 	}
