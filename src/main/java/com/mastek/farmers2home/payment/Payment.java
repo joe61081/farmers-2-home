@@ -1,5 +1,7 @@
 package com.mastek.farmers2home.payment;
 
+import com.mastek.farmers2home.order.Order;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,8 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import com.mastek.farmers2home.order.Order;
 
 @Entity
 @Table(name="payment")

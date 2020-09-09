@@ -1,5 +1,20 @@
 package com.mastek.farmers2home.product;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlTransient;
+
+import com.mastek.farmers2home.order.Order;
+
+@Entity
+@Table(name="Products")
 public class Product {
 	int productId;
 	String productName;
@@ -8,6 +23,18 @@ public class Product {
 	double productPrice;
 	int stockQuantity;
 	
+	Set <Order> orderItemAssigned = new HashSet<>();
+	
+	@OneToMany(mappedBy = "orderAssigned", cascade = CascadeType.ALL)
+	@XmlTransient
+	public Set<Order> getOrderItemAssigned() {
+		return orderItemAssigned;
+	}
+	public void setOrderItemAssigned(Set<Order> orderItemAssigned) {
+		this.orderItemAssigned = orderItemAssigned;
+	}
+	@Id
+	@Column(name="productId")
 	public int getProductId() {
 		return productId;
 	}
