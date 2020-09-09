@@ -47,10 +47,5 @@ public class Orders {
 	public void setQuantityOrdered(int quantityOrdered) {
 		this.quantityOrdered = quantityOrdered;
 	}
-	
-	
-	
-	
-	
 
 }

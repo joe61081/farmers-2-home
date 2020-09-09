@@ -1,6 +1,6 @@
 package com.mastek.farmers2home.farmer;
 
-public class Farmers {
+public class Farmer {
 
 	int farmerId;
 	String farmerFirstName;
@@ -8,7 +8,7 @@ public class Farmers {
 	String location;
 	long contactNumber;
 	
-	public Farmers() {
+	public Farmer() {
 	}
 	
 	public int getFarmerId() {
@@ -58,7 +58,7 @@ public class Farmers {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Farmers other = (Farmers) obj;
+		Farmer other = (Farmer) obj;
 		if (farmerId != other.farmerId)
 			return false;
 		return true;
