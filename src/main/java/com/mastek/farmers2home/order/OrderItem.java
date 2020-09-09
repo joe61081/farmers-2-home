@@ -4,6 +4,7 @@ import com.mastek.farmers2home.product.Product;
 
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.Objects;
 
 public class OrderItem {
@@ -14,6 +15,7 @@ public class OrderItem {
 
     @ManyToOne
     @JoinColumn(name="fk_orderId")
+    @XmlTransient
     public Order getAssignedOrder() {
         return assignedOrder;
     }
@@ -24,6 +26,7 @@ public class OrderItem {
 
     @ManyToOne
     @JoinColumn(name="fk_productId")
+    @XmlTransient
     public Product getAssignedProduct() {
         return assignedProduct;
     }

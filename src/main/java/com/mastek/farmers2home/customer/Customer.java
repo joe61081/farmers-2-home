@@ -3,6 +3,7 @@ package com.mastek.farmers2home.customer;
 import com.mastek.farmers2home.order.Order;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -51,6 +52,7 @@ public class Customer {
     }
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    @XmlTransient
     public Set<Order> getOrders() {
         return orders;
     }
