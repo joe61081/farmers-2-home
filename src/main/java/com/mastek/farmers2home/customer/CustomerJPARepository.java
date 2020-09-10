@@ -1,9 +1,9 @@
 package com.mastek.farmers2home.customer;
 
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Component;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-@Component
+@RepositoryRestResource(path = "customer")
 public interface CustomerJPARepository extends CrudRepository<Customer, Integer> {
 
 }
