@@ -48,8 +48,6 @@ public class Farmer {
 		this.productAssigned = productAssigned;
 	}
 
-
-
 	@Id
 	@Column(name="farmer_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
