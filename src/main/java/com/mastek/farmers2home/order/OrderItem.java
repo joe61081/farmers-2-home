@@ -17,7 +17,7 @@ public class OrderItem {
 
     @Id
     @Column(name="order_item_id")
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     public int getOrderItemId() {
         return orderItemId;
     }

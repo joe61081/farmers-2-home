@@ -6,6 +6,10 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
@@ -46,6 +50,7 @@ public class Product {
 	}
 	@Id
 	@Column(name="productId")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int getProductId() {
 		return productId;
 	}
@@ -64,6 +69,8 @@ public class Product {
 	public void setProductDesc(String productDesc) {
 		this.productDesc = productDesc;
 	}
+	
+	@Enumerated(EnumType.STRING)
 	public ProductCat getProductCat() {
 		return productCat;
 	}
