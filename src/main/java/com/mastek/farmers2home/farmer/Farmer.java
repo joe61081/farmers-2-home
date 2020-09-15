@@ -25,7 +25,7 @@ public class Farmer {
 	String farmerFirstName;
 	String farmerLastName;
 	String location;
-	long contactNumber;
+	String contactNumber;
 	
 	Set<Product> productAssigned = new HashSet<>();
 
@@ -73,10 +73,10 @@ public class Farmer {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public long getContactNumber() {
+	public String getContactNumber() {
 		return contactNumber;
 	}
-	public void setContactNumber(long contactNumber) {
+	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 
