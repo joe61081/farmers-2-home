@@ -29,7 +29,7 @@ public class CustomerServiceTest {
         c.setCustomerAddress("Test Address");
         c.setCustomerContact("12345");
 
-        customerService.addCustomer(c);
+        c = customerService.addCustomer(c);
 
         Assert.assertNotNull(customerJPADAO.findById(c.getCustomerId()));
 
@@ -38,5 +38,17 @@ public class CustomerServiceTest {
         Assert.assertEquals(persistedCustomer.getCustomerName(),"Test Customer");
         Assert.assertEquals(persistedCustomer.getCustomerAddress(),"Test Address");
         Assert.assertEquals(persistedCustomer.getCustomerContact(),"12345");
+    }
+
+    @Test
+    public void testFindCustomerLogin(){
+        Customer customer = customerJPADAO.findCustomerLogin("test@email.com", "pass");
+
+        Assert.assertEquals(customer.getCustomerId(), 1);
+        Assert.assertEquals(customer.getEmailAddress(), "test@email.com");
+        Assert.assertEquals(customer.getPassword(), "pass");
+        Assert.assertEquals(customer.getCustomerName(), "Sample Name");
+        Assert.assertEquals(customer.getCustomerAddress(), "Sample Address");
+        Assert.assertEquals(customer.getCustomerContact(), "012345");
     }
 }

@@ -32,11 +32,6 @@ public class OrderItemServiceTest {
     @Autowired
     ProductJPADAO productJPADAO;
 
-    @Before
-    public void initialize() {
-
-    }
-
     @Test
     public void testAddProductToOrder(){
         Order order = orderJPADAO.findById(1).get();
