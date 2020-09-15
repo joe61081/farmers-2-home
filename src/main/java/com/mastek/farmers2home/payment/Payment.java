@@ -2,6 +2,7 @@ package com.mastek.farmers2home.payment;
 
 import com.mastek.farmers2home.order.Order;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -17,23 +18,23 @@ import javax.persistence.Table;
 @Table(name="payment")
 public class Payment {
 	
-	int PaymentId;
-	double TotalPaid;
-	PaymentType PaymentType;
-	String PaymentDate;
-	long CardNumber;
-	int SortCode;
-	long AccountNumber;
+	private int PaymentId;
+	private double TotalPaid;
+	private PaymentType PaymentType;
+	private String PaymentDate;
+	private long CardNumber;
+	private int SortCode;
+	private long AccountNumber;
 	
-	Order currentorder;
+	private Order orderAssigned;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "fk_order_id")
-	public Order getCurrentorder() {
-		return currentorder;
+	public Order getOrderAssigned() {
+		return orderAssigned;
 	}
 	public void setCurrentorder(Order currentorder) {
-		this.currentorder = currentorder;
+		this.orderAssigned = currentorder;
 	}
 	
 	@Id

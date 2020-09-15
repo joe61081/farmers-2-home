@@ -21,7 +21,7 @@ public class OrderService {
 		Order order = orderDAO.findById(OrderId).get();
 		Payment payment = paymentDAO.findById(paymentId).get();
 		
-		order.getpaymentAssigned();
+		order.getPaymentAssigned();
 		orderDAO.save(order);
 		return order;
 

@@ -15,10 +15,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlTransient;
 
 import com.mastek.farmers2home.customer.Customer;
+import com.mastek.farmers2home.payment.Payment;
 
 @Entity
 @Table(name="customer_orders")
@@ -55,6 +57,15 @@ public class Order {
 	}
 	public void setOrderItemAssigned(Set<OrderItem> orderItemAssigned) {
 		this.orderItemAssigned = orderItemAssigned;
+	}
+	Payment paymentAssigned;
+	@OneToOne
+	@XmlTransient
+	public Payment getPaymentAssigned() {
+		return paymentAssigned;
+	}
+	public void setPaymentAssigned(Payment paymentAssigned) {
+		this.paymentAssigned = paymentAssigned;
 	}
 
 	@Id
@@ -128,5 +139,7 @@ public class Order {
 		return "Order [orderId=" + orderId + ", orderPrice=" + orderPrice + ", orderStatus=" + orderStatus
 				+ ", orderDate=" + orderDate + ", isSubscription=" + isSubscription + "]";
 	}
+
+		
+	}
 	
-}

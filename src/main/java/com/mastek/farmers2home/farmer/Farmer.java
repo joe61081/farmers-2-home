@@ -42,8 +42,6 @@ public class Farmer {
 		return productAssigned;
 	}
 
-
-
 	public void setProductAssigned(Set<Product> productAssigned) {
 		this.productAssigned = productAssigned;
 	}
