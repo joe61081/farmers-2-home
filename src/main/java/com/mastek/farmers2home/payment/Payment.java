@@ -38,7 +38,7 @@ public class Payment {
 	
 	@Id
 	@Column(name="payment_id")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getPaymentId() {
 		return PaymentId;
 	}
