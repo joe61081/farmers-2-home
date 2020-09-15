@@ -38,7 +38,7 @@ public class OrderItemServiceTest {
     }
 
     @Test
-    public void testaddProductToOrder(){
+    public void testAddProductToOrder(){
         Order order = orderJPADAO.findById(1).get();
         Product product = productJPADAO.findById(1).get();
 

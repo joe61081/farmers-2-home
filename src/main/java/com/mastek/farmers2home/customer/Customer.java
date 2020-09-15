@@ -12,10 +12,12 @@ import java.util.Set;
 public class Customer {
 
     private int customerId;
+    private String emailAddress;
+    private String password;
     private String customerName;
     private String customerAddress;
     private String customerContact;
-    
+
     private Set<Order> orders = new HashSet<>();
 
     @Id
@@ -26,6 +28,22 @@ public class Customer {
 
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getCustomerName() {
@@ -66,9 +84,11 @@ public class Customer {
     public String toString() {
         return "Customer{" +
                 "customerId=" + customerId +
+                ", emailAddress='" + emailAddress + '\'' +
                 ", customerName='" + customerName + '\'' +
                 ", customerAddress='" + customerAddress + '\'' +
                 ", customerContact='" + customerContact + '\'' +
+                ", orders=" + orders +
                 '}';
     }
 }
