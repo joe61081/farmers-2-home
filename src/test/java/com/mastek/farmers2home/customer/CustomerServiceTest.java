@@ -7,11 +7,13 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 public class CustomerServiceTest {
 
     @Autowired
@@ -27,8 +29,14 @@ public class CustomerServiceTest {
         c.setCustomerAddress("Test Address");
         c.setCustomerContact("12345");
 
-        c = customerJPADAO.save(c);
+        customerService.addCustomer(c);
 
-        //Assert.assertNotNull(customerJPADAO.findById(c.getCustomerId()));
+        Assert.assertNotNull(customerJPADAO.findById(c.getCustomerId()));
+
+        Customer persistedCustomer = customerJPADAO.findById(c.getCustomerId()).get();
+
+        Assert.assertEquals(persistedCustomer.getCustomerName(),"Test Customer");
+        Assert.assertEquals(persistedCustomer.getCustomerAddress(),"Test Address");
+        Assert.assertEquals(persistedCustomer.getCustomerContact(),"12345");
     }
 }
