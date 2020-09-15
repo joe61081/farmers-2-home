@@ -3,10 +3,12 @@ package com.mastek.farmers2home.farmer;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.mastek.farmers2home.product.Product;
 import com.mastek.farmers2home.product.ProductJPADAO;
 
+@Component
 public class FarmerServices {
 
 	@Autowired

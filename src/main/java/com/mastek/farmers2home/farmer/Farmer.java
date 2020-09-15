@@ -6,8 +6,6 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -42,15 +40,12 @@ public class Farmer {
 		return productAssigned;
 	}
 
-
-
 	public void setProductAssigned(Set<Product> productAssigned) {
 		this.productAssigned = productAssigned;
 	}
 
 	@Id
 	@Column(name="farmer_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getFarmerId() {
 		return farmerId;
 	}
