@@ -22,7 +22,7 @@ public class FarmerTest {
 	@Autowired
 	FarmerJPADAO farmerDAO;
 	
-	//@Test
+	@Test
 	public void addNewFarmer() {
 		Farmer newFarmer = new Farmer();
 		newFarmer.setFarmerFirstName("Test first name");
