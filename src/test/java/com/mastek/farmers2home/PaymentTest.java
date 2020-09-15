@@ -18,7 +18,6 @@ import com.mastek.farmers2home.payment.PaymentJPADAO;
 import com.mastek.farmers2home.payment.PaymentType;
 
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes=Payment.class,loader=AnnotationConfigContextLoader.class)//Failed to load application content error
 @SpringBootTest
 
 public class PaymentTest {
