@@ -1,15 +1,13 @@
 package com.mastek.farmers2home.product;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import com.mastek.farmers2home.product.Product;
-import com.mastek.farmers2home.product.ProductCat;
-import com.mastek.farmers2home.product.ProductJPADAO;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -18,6 +16,9 @@ public class ProductTest {
 	
 	@Autowired
 	ProductJPADAO prodDAO;
+	
+	@Autowired
+	ProductServices proS;
 	
 	@Test
 	public void testProductAdd() {
@@ -29,6 +30,11 @@ public class ProductTest {
 		prod.setProductPrice(13);
 		
 		prod = prodDAO.save(prod);
+	}
+	
+	//@Test
+	void assignProductToOrderItem() {
+		Product pro = proS.assignProductToOrderItem(67, 75);
 	}
 
 }

@@ -14,8 +14,6 @@ import javax.ws.rs.core.MediaType;
 
 import com.mastek.farmers2home.product.Product;
 
-
-
 @Path("/farmers2home/")
 public interface FarmerAPI {
 

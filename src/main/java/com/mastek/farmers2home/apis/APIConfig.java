@@ -5,6 +5,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;
 
 import com.mastek.farmers2home.farmer.FarmerServices;
+import com.mastek.farmers2home.product.ProductServices;
 
 import javax.ws.rs.ApplicationPath;
 
@@ -19,6 +20,7 @@ public class APIConfig extends ResourceConfig {
 		// register each service class to enable services as API
 		register(CustomerService.class);
 		register(FarmerServices.class);
+		register(ProductServices.class);
 	}
 
 }
