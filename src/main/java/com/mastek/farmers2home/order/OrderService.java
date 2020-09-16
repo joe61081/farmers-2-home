@@ -3,14 +3,15 @@ package com.mastek.farmers2home.order;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 
 import com.mastek.farmers2home.payment.Payment;
 import com.mastek.farmers2home.payment.PaymentJPADAO;
 
-
 @Component
+@Scope("singleton")
 public class OrderService {
 
 	@Autowired
@@ -28,5 +29,5 @@ public class OrderService {
 		order.getPaymentAssigned();
 		orderDAO.save(order);
 		return order;
-}
+	}
 }
