@@ -29,10 +29,5 @@ public class ProductTest {
 		
 		prod = prodDAO.save(prod);
 	}
-	
-	//@Test
-	void assignProductToOrderItem() {
-		Product pro = proS.assignProductToOrderItem(67, 75);
-	}
 
 }

@@ -16,7 +16,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Sql({"/data.sql"})
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 public class OrderItemServiceTest {
 
     @Autowired
