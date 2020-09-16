@@ -41,8 +41,8 @@ public class CustomerServiceTest {
     }
 
     @Test
-    public void testFindCustomerLogin(){
-        Customer customer = customerJPADAO.findCustomerLogin("test@email.com", "pass");
+    public void testGetCustomerLogin(){
+        Customer customer = customerService.getCustomerLogin("test@email.com", "pass");
 
         Assert.assertEquals(customer.getCustomerId(), 1);
         Assert.assertEquals(customer.getEmailAddress(), "test@email.com");
