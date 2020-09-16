@@ -1,3 +1,4 @@
+
 package com.mastek.farmers2home.farmer;
 
 import java.util.HashSet;
@@ -25,7 +26,7 @@ public class Farmer {
 	String farmerFirstName;
 	String farmerLastName;
 	String location;
-	long contactNumber;
+	String contactNumber;
 	
 	Set<Product> productAssigned = new HashSet<>();
 
@@ -73,10 +74,10 @@ public class Farmer {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public long getContactNumber() {
+	public String getContactNumber() {
 		return contactNumber;
 	}
-	public void setContactNumber(long contactNumber) {
+	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 
@@ -106,5 +107,6 @@ public class Farmer {
 	public String toString() {
 		return "Farmers [farmerId=" + farmerId + ", farmerFirstName=" + farmerFirstName + ", farmerLastName="
 				+ farmerLastName + ", location=" + location + ", contactNumber=" + contactNumber + "]";
-	}
+	
+}
 }
