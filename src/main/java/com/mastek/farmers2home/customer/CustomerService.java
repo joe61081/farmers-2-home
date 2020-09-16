@@ -8,24 +8,16 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Component
-@Path("/customer")
-public class CustomerService {
+public class CustomerService implements CustomerAPI {
 
     @Autowired
     CustomerJPADAO customerDao;
 
-    @POST
-    @Path("/register")
-    @PostMapping(path = "/register", consumes = "application/json", produces = "application/json")
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Customer addCustomer(@BeanParam Customer newCustomer) {
         customerDao.save(newCustomer);
         return newCustomer;
     }
 
-    @GET
-    @Path("/login")
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Customer getCustomerLogin(@QueryParam("email") String email, @QueryParam("pass") String password){
         Customer customer = customerDao.findCustomerLogin(email, password);
         return customer;
