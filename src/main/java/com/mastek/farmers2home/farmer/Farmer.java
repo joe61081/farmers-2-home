@@ -13,20 +13,38 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlTransient;
 
 import com.mastek.farmers2home.product.Product;
 
 @Entity
 @Table(name="farmer")
+@NamedQuery(name="Farmer.findByEmailAndPassword",
+			query="select a from Farmer a where a.email=:email and a.password=:password")
 public class Farmer {
 
-	int farmerId;
-	String farmerFirstName;
-	String farmerLastName;
-	String location;
-	String contactNumber;
+	private int farmerId;
+	
+	@FormParam("farmerFirstName")
+	private String farmerFirstName;
+	
+	@FormParam("farmerLastName")
+	private String farmerLastName;
+	
+	@FormParam("location")
+	private String location;
+	
+	@FormParam("contactNumber")
+	private String contactNumber;
+	
+	@FormParam("email")
+	private String email;
+	
+	@FormParam("password")
+	private String password;
 	
 	Set<Product> productAssigned = new HashSet<>();
 
@@ -76,6 +94,22 @@ public class Farmer {
 	}
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override

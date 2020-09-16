@@ -37,6 +37,8 @@ public class FarmerTest {
 		newFarmer.setFarmerLastName("Test last name");
 		newFarmer.setLocation("Test location");
 		newFarmer.setContactNumber("123456789");
+		newFarmer.setEmail("example@example.com");
+		newFarmer.setPassword("Test");
 		
 		newFarmer = farmerDAO.save(newFarmer);
 		
