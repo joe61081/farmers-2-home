@@ -33,6 +33,11 @@ public class Payment {
 	public Order getOrderAssigned() {
 		return orderAssigned;
 	}
+
+	public void setOrderAssigned(Order orderAssigned) {
+		this.orderAssigned = orderAssigned;
+	}
+
 	public void setCurrentorder(Order currentorder) {
 		this.orderAssigned = currentorder;
 	}

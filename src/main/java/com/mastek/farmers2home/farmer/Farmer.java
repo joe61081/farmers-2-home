@@ -30,9 +30,6 @@ public class Farmer {
 	
 	Set<Product> productAssigned = new HashSet<>();
 
-	public Farmer() {
-	}
-	
 	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinTable(name="Farmer_To_Product_Assignments", //provide the join table name
 			joinColumns= {@JoinColumn(name="fk_farmerId")}, //foreign key column for current class
