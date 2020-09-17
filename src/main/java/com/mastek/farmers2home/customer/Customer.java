@@ -4,7 +4,6 @@ import com.mastek.farmers2home.order.Order;
 
 import javax.persistence.*;
 import javax.ws.rs.FormParam;
-import javax.ws.rs.QueryParam;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.HashSet;
 import java.util.Set;
@@ -78,7 +77,7 @@ public class Customer {
         this.customerContact = customerContact;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerAssigned")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "customerAssigned")
     @XmlTransient
     public Set<Order> getOrders() {
         return orders;
