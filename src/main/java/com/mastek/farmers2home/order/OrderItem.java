@@ -3,6 +3,7 @@ package com.mastek.farmers2home.order;
 import com.mastek.farmers2home.product.Product;
 
 import javax.persistence.*;
+import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.Objects;
 
@@ -13,6 +14,8 @@ public class OrderItem {
     private int orderItemId;
     private Order assignedOrder;
     private Product assignedProduct;
+    
+    @FormParam(value = "quantity")
     private int quantity;
 
     @Id

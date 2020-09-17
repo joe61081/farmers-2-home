@@ -14,7 +14,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.mastek.farmers2home.order.OrderItem;
 
-@Path("/farmers2home/")
+@Path("/farmers2home")
 public interface ProductAPI {
 	
 	// http://localhost:7777/farmers2home/product/list
