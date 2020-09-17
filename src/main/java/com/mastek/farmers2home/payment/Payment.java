@@ -13,19 +13,34 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.ws.rs.FormParam;
 
 @Entity
 @Table(name="payment")
 public class Payment {
 	
 	private int PaymentId;
+	
+	@FormParam("total paid")
 	private double TotalPaid;
+	
+	@FormParam("payment type")
 	private PaymentType PaymentType;
+	
+	@FormParam("payment date")
 	private String PaymentDate;
+	
+	@FormParam("card number")
 	private long CardNumber;
+	
+	@FormParam("sort code")
 	private int SortCode;
+	
+	@FormParam("Account number")
 	private long AccountNumber;
 	
+	
+	//relationships
 	private Order orderAssigned;
 	
 	@OneToOne(cascade=CascadeType.ALL)
@@ -42,6 +57,7 @@ public class Payment {
 		this.orderAssigned = currentorder;
 	}
 	
+	//Getters and Setters 
 	@Id
 	@Column(name="payment_id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -88,6 +104,7 @@ public class Payment {
 	public void setAccountNumber(long accountNumber) {
 		AccountNumber = accountNumber;
 	}
+	//hashcode and equals
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -109,6 +126,7 @@ public class Payment {
 			return false;
 		return true;
 	}
+	//tostring
 	@Override
 	public String toString() {
 		return "Payment [PaymentId=" + PaymentId + ", TotalPaid=" + TotalPaid + ", PaymentType=" + PaymentType

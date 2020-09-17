@@ -10,11 +10,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.mastek.farmers2home.order.OrderJPADAO;
-import com.mastek.farmers2home.order.OrderService;
 import com.mastek.farmers2home.payment.Payment;
 import com.mastek.farmers2home.payment.PaymentJPADAO;
 import com.mastek.farmers2home.payment.PaymentService;
 import com.mastek.farmers2home.payment.PaymentType;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -27,8 +27,6 @@ public class PaymentTest {
 	PaymentService paymentservice;
 	@Autowired
 	OrderJPADAO orderdao;
-	@Autowired
-	OrderService orderservice;
 	
 	@Test
 	public void testAddPayment() {
@@ -44,9 +42,10 @@ public class PaymentTest {
 		
 		payment = paymentdao.save(payment);
 		assertNotNull("Payment Not Added", payment);
-		
-
 	}
+		
+	}
+
 	
 
-}
+

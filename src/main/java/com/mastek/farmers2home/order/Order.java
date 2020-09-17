@@ -17,6 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlTransient;
 
 import com.mastek.farmers2home.customer.Customer;
@@ -28,10 +29,13 @@ public class Order {
 	
 	int orderId;
 	
+	@FormParam("order price")
 	double orderPrice;
 	
+	@FormParam("order status")
 	orderStatus orderStatus;
 	
+	@FormParam("order date")
 	Date orderDate;
 	
 	boolean isSubscription;
@@ -139,7 +143,11 @@ public class Order {
 		return "Order [orderId=" + orderId + ", orderPrice=" + orderPrice + ", orderStatus=" + orderStatus
 				+ ", orderDate=" + orderDate + ", isSubscription=" + isSubscription + "]";
 	}
-
-		
+	public int size() {
+		return 0;
 	}
+	
+	}
+
+	
 	
