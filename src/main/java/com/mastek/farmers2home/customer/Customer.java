@@ -3,6 +3,7 @@ package com.mastek.farmers2home.customer;
 import com.mastek.farmers2home.order.Order;
 
 import javax.persistence.*;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.QueryParam;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.HashSet;
@@ -14,15 +15,15 @@ public class Customer {
 
     private int customerId;
 
-    @QueryParam("email")
+    @FormParam("email")
     private String emailAddress;
-    @QueryParam("pass")
+    @FormParam("pass")
     private String password;
-    @QueryParam("name")
+    @FormParam("name")
     private String customerName;
-    @QueryParam("address")
+    @FormParam("address")
     private String customerAddress;
-    @QueryParam("contact")
+    @FormParam("contact")
     private String customerContact;
 
     private Set<Order> orders = new HashSet<>();

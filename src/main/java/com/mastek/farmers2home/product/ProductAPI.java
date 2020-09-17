@@ -14,37 +14,38 @@ import javax.ws.rs.core.MediaType;
 
 import com.mastek.farmers2home.order.OrderItem;
 
-@Path("/farmers2home")
+
+@Path("/")
 public interface ProductAPI {
 	
-	// http://localhost:7777/farmers2home/product/list
+		// GET  http://localhost:8080/farmers2home/products
 		@GET	
-		@Path("/product/list")	//URL Path to access this method
+		@Path("/products")	//URL Path to access this method
 		@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 		public Iterable<Product> listAllProducts();
 		
-		// http://localhost:7777/farmers2home/product/find/{farmerId}
+		// GET http://localhost:8080/farmers2home/products{farmerId}
 		@GET 
-		@Path("/product/find/{productId}")
+		@Path("/products/{productId}")
 		@Produces({MediaType.APPLICATION_JSON})
 		public Product findByProductId(@PathParam("productId")int productId);
 		
-		// http://localhost:7777/farmers2home/product/register
+		// POST http://localhost:8080/farmers2home/products/register
 		@POST 
-		@Path("/product/register")
+		@Path("/products/register")
 		@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 		@Produces(MediaType.APPLICATION_JSON)
 		public Product registerNewProduct(@BeanParam Product newProduct);
 		
-		// http://localhost:7777/farmers2home/product/orderItem/{productId}
+		// GET http://localhost:8080/farmers2home/products/orderItem/{productId}
 		@GET
-		@Path("/product/orderItem/{productId}")
+		@Path("/products/orderItem/{productId}")
 		@Produces({MediaType.APPLICATION_JSON})
 		public Set<OrderItem> getProductsOrderItem(@PathParam("productId") int productId);
 		
-		// http://localhost:7777/farmers2home/product/orderItem/register
+		// POST http://localhost:8080/farmers2home/products/orderItem/register
 		@POST
-		@Path("/product/orderItem/register")
+		@Path("/products/orderItem/register")
 		@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 		@Produces(MediaType.APPLICATION_JSON)
 		public OrderItem registerOrderItemForProduct(@FormParam("productId")int productId, @BeanParam OrderItem newOrderItem);

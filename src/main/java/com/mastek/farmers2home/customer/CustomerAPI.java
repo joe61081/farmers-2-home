@@ -1,22 +1,21 @@
 package com.mastek.farmers2home.customer;
 
-import org.springframework.web.bind.annotation.PostMapping;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Path("/customer/")
 public interface CustomerAPI {
 
+    // POST http://localhost:8080/farmers2home/customer/register
     @POST
     @Path("/register")
-    @PostMapping(path = "/register", consumes = "application/json", produces = "application/json")
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Produces({MediaType.APPLICATION_JSON})
     public Customer addCustomer(@BeanParam Customer newCustomer);
 
-    @GET
+    // POST http://localhost:8080/farmers2home/customer/login
+    @POST
     @Path("/login")
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public Customer getCustomerLogin(@QueryParam("email") String email, @QueryParam("pass") String password);
+    @Produces({MediaType.APPLICATION_JSON})
+    public Customer getCustomerLogin(@FormParam("email") String email, @FormParam("pass") String password);
 
 }

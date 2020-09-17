@@ -18,9 +18,11 @@ public class CustomerService implements CustomerAPI {
         return newCustomer;
     }
 
-    public Customer getCustomerLogin(@QueryParam("email") String email, @QueryParam("pass") String password){
-        Customer customer = customerDao.findCustomerLogin(email, password);
-        return customer;
+    @POST
+    @Path("/login")
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    public Customer getCustomerLogin(@FormParam("email") String email, @FormParam("pass") String password){
+         return customerDao.findCustomerLogin(email, password);
     }
 
 }
