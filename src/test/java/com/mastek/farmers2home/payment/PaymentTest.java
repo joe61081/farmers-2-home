@@ -2,6 +2,7 @@ package com.mastek.farmers2home.payment;
 
 import static org.junit.Assert.assertNotNull;
 
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,8 +44,18 @@ public class PaymentTest {
 		payment = paymentdao.save(payment);
 		assertNotNull("Payment Not Added", payment);
 	}
-		
+	@Test
+	public void testListAllPayments() {
+		System.out.println("Print all payments");
+		for (Payment payment : paymentdao.findAll()) {
+			System.out.println(payment);
 	}
+	}
+				
+	}
+
+		
+	
 
 	
 
