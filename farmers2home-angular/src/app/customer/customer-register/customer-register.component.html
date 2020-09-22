@@ -1,24 +1,24 @@
-<form id="customerRegisterForm" [formGroup]="customerRegisterForm" (ngSubmit)="onSubmit()">
+<form class="card p-3 bg-light" id="customerRegisterForm" [formGroup]="customerRegisterForm" (ngSubmit)="onSubmit()">
     <h2>Register new Customer</h2>
     <div class="form-group">
-        <label for="customerNameInput" class="col-sm-2 col-form-label">Full Name</label>
-        <input type="text" class="form-control col-sm-10" id="customerNameInput" placeholder="Enter Full Name" formControlName="customerName">
+        <label for="customerNameInput" class="col-sm-2 offset-sm-1 col-form-label">Full Name</label>
+        <input type="text" class="form-control col-sm-10 offset-sm-1" id="customerNameInput" placeholder="Enter Full Name" formControlName="customerName">
     </div>
     <div class="form-group">
-        <label for="customerEmailInput" class="col-sm-2 col-form-label">Email address</label>
-        <input type="email" class="form-control col-sm-10" id="customerEmailInput" placeholder="Enter email" formControlName="customerEmail">
+        <label for="customerEmailInput" class="col-sm-2 offset-sm-1 col-form-label">Email address</label>
+        <input type="email" class="form-control col-sm-10 offset-sm-1" id="customerEmailInput" placeholder="Enter email" formControlName="customerEmail">
     </div>
     <div class="form-group">
-        <label for="customerPasswordInput" class="col-sm-2 col-form-label">Password</label>
-        <input type="password" class="form-control col-sm-10" id="customerPasswordInput" placeholder="Enter password" formControlName="customerPassword">
+        <label for="customerPasswordInput" class="col-sm-2 offset-sm-1 col-form-label">Password</label>
+        <input type="password" class="form-control col-sm-10 offset-sm-1" id="customerPasswordInput" placeholder="Enter password" formControlName="customerPassword">
     </div>
     <div class="form-group">
-        <label for="customerAddressInput" class="col-sm-2 col-form-label">Email address</label>
-        <input type="text" class="form-control col-sm-10" id="customerAddressInput" placeholder="Enter address" formControlName="customerAddress">
+        <label for="customerAddressInput" class="col-sm-2 offset-sm-1 col-form-label">Email address</label>
+        <input type="text" class="form-control col-sm-10 offset-sm-1" id="customerAddressInput" placeholder="Enter address" formControlName="customerAddress">
     </div>
     <div class="form-group">
-        <label for="customerContactInput" class="col-sm-2 col-form-label">Email address</label>
-        <input type="text" class="form-control col-sm-10" id="customerContactInput" placeholder="Enter contact num" formControlName="customerContact">
+        <label for="customerContactInput" class="col-sm-2 offset-sm-1 col-form-label">Email address</label>
+        <input type="text" class="form-control col-sm-10 offset-sm-1" id="customerContactInput" placeholder="Enter contact num" formControlName="customerContact">
     </div>
-    <button type="submit" class="btn btn-dark">Submit</button>
+    <button type="submit" class="btn btn-dark col-sm-4 offset-sm-4">Submit</button>
 </form>
