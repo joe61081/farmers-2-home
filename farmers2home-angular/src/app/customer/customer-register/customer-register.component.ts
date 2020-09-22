@@ -19,13 +19,6 @@ export class CustomerRegisterComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-  //   this.customerRegisterForm = this.formBuilder.group({
-  //     customerName: ['', Validators.required],
-  //     customerEmail: ['', Validators.required],
-  //     customerPassword: ['', Validators.required],
-  //     customerAddress: ['', Validators.required],
-  //     customerContact: ['', Validators.required]
-  // });
   }
 
   onSubmit() {
