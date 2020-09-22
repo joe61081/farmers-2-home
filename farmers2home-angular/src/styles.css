@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-html body{
+.dark{
     background-color: #212529;
     color: #f8f9fa;
+    height: 100vh;
+}
+
+.light{
+    background-color: #f8f9fa;
+    color: #212529;
 }
