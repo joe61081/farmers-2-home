@@ -1,24 +1,3 @@
-<form id="customerRegisterForm" [formGroup]="customerRegisterForm" (ngSubmit)="onSubmit()">
-    <h2>Register new Customer</h2>
-    <div class="form-group">
-        <label for="customerNameInput" class="col-sm-2 col-form-label">Full Name</label>
-        <input type="text" class="form-control col-sm-10" id="customerNameInput" placeholder="Enter Full Name" formControlName="customerName">
-    </div>
-    <div class="form-group">
-        <label for="customerEmailInput" class="col-sm-2 col-form-label">Email address</label>
-        <input type="email" class="form-control col-sm-10" id="customerEmailInput" placeholder="Enter email" formControlName="customerEmail">
-    </div>
-    <div class="form-group">
-        <label for="customerPasswordInput" class="col-sm-2 col-form-label">Password</label>
-        <input type="password" class="form-control col-sm-10" id="customerPasswordInput" placeholder="Enter password" formControlName="customerPassword">
-    </div>
-    <div class="form-group">
-        <label for="customerAddressInput" class="col-sm-2 col-form-label">Email address</label>
-        <input type="text" class="form-control col-sm-10" id="customerAddressInput" placeholder="Enter address" formControlName="customerAddress">
-    </div>
-    <div class="form-group">
-        <label for="customerContactInput" class="col-sm-2 col-form-label">Email address</label>
-        <input type="text" class="form-control col-sm-10" id="customerContactInput" placeholder="Enter contact num" formControlName="customerContact">
-    </div>
-    <button type="submit" class="btn btn-dark">Submit</button>
-</form>
+<h1>Customer</h1>
+
+<router-outlet></router-outlet>
