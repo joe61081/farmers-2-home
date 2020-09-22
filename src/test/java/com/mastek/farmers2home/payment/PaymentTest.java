@@ -51,6 +51,12 @@ public class PaymentTest {
 			System.out.println(payment);
 	}
 	}
+	@Test
+	public void testAssignPaymentToOrder() {
+		Payment payment = paymentservice.assignPaymentToOrder(1, 1);
+		assertNotNull("Payment Not Assigned", payment.getOrderAssigned());
+		
+	}
 				
 	}
 
