@@ -1,11 +1,14 @@
 package com.mastek.farmers2home.customer;
 
+import com.mastek.farmers2home.order.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.Set;
 
 @Component
 @Path("/customer")
@@ -14,21 +17,23 @@ public class CustomerService {
     @Autowired
     CustomerJPADAO customerDao;
 
-    @POST
-    @Path("/register")
-    @PostMapping(path = "/register", consumes = "application/json", produces = "application/json")
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public Customer addCustomer(@BeanParam Customer newCustomer) {
+
+    public Customer addCustomer(Customer newCustomer) {
         customerDao.save(newCustomer);
         return newCustomer;
     }
+    
+//    Customer customer = customerDao.findCustomerLogin(email, password);
+//        return customer;
+        
+    public Customer getCustomerLogin(String email, String password){
+         return customerDao.findCustomerLogin(email, password);
+    }
 
-    @GET
-    @Path("/login")
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public Customer getCustomerLogin(@QueryParam("email") String email, @QueryParam("pass") String password){
-        Customer customer = customerDao.findCustomerLogin(email, password);
-        return customer;
+    public Set<Order> getCustomerOrders(int custId){
+        Customer customer = customerDao.findById(custId).get();
+        return customer.getOrders();
+
     }
 
 }

@@ -10,7 +10,7 @@ import com.mastek.farmers2home.payment.PaymentService;
 import javax.ws.rs.ApplicationPath;
 
 @Component //declare it as spring component
-@ApplicationPath("/api")
+@ApplicationPath("/farmers2home")
 public class APIConfig extends ResourceConfig {
 	//configure the service classes using ResourceConfig
 	
