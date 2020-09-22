@@ -1,23 +1,23 @@
 <form class="card p-3 bg-light" id="customerRegisterForm" [formGroup]="customerRegisterForm" (ngSubmit)="onSubmit()">
-    <h2>Register new Customer</h2>
+    <h2>Register</h2>
     <div class="form-group">
-        <label for="customerNameInput" class="col-sm-2 offset-sm-1 col-form-label">Full Name</label>
+        <label for="customerNameInput" class="text-nowrap col-sm-2 offset-sm-1 col-form-label">Full Name</label>
         <input type="text" class="form-control col-sm-10 offset-sm-1" id="customerNameInput" placeholder="Enter Full Name" formControlName="customerName">
     </div>
     <div class="form-group">
-        <label for="customerEmailInput" class="col-sm-2 offset-sm-1 col-form-label">Email address</label>
+        <label for="customerEmailInput" class="text-nowrap col-sm-2 offset-sm-1 col-form-label">Email address</label>
         <input type="email" class="form-control col-sm-10 offset-sm-1" id="customerEmailInput" placeholder="Enter email" formControlName="customerEmail">
     </div>
     <div class="form-group">
-        <label for="customerPasswordInput" class="col-sm-2 offset-sm-1 col-form-label">Password</label>
+        <label for="customerPasswordInput" class="text-nowrap col-sm-2 offset-sm-1 col-form-label">Password</label>
         <input type="password" class="form-control col-sm-10 offset-sm-1" id="customerPasswordInput" placeholder="Enter password" formControlName="customerPassword">
     </div>
     <div class="form-group">
-        <label for="customerAddressInput" class="col-sm-2 offset-sm-1 col-form-label">Email address</label>
+        <label for="customerAddressInput" class="text-nowrap col-sm-2 offset-sm-1 col-form-label">Email address</label>
         <input type="text" class="form-control col-sm-10 offset-sm-1" id="customerAddressInput" placeholder="Enter address" formControlName="customerAddress">
     </div>
     <div class="form-group">
-        <label for="customerContactInput" class="col-sm-2 offset-sm-1 col-form-label">Email address</label>
+        <label for="customerContactInput" class="text-nowrap col-sm-2 offset-sm-1 col-form-label">Email address</label>
         <input type="text" class="form-control col-sm-10 offset-sm-1" id="customerContactInput" placeholder="Enter contact num" formControlName="customerContact">
     </div>
     <button type="submit" class="btn btn-dark col-sm-4 offset-sm-4">Submit</button>

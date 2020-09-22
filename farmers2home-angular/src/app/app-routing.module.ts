@@ -8,12 +8,12 @@ const routes: Routes = [
   { path: 'customer', component: CustomerComponent,
   children: [
     {
-      path: 'register', // child route path
-      component: CustomerRegisterComponent, // child route component that the router renders
+      path: 'register',
+      component: CustomerRegisterComponent, 
     },
     {
-      path: 'login', // child route path
-      component: CustomerLoginComponent, // child route component that the router renders
+      path: 'login',
+      component: CustomerLoginComponent, 
     }]
    }
 ];
