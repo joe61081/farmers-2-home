@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.mastek.farmers2home.farmer.FarmerTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 s - in com.mastek.farmers2home.farmer.FarmerTest

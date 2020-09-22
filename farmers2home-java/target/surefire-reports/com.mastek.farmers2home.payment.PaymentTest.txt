@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.mastek.farmers2home.payment.PaymentTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.047 s <<< FAILURE! - in com.mastek.farmers2home.payment.PaymentTest
+testAssignPaymentToOrder(com.mastek.farmers2home.payment.PaymentTest)  Time elapsed: 0.01 s  <<< ERROR!
+java.util.NoSuchElementException: No value present
+	at com.mastek.farmers2home.payment.PaymentTest.testAssignPaymentToOrder(PaymentTest.java:56)
+
