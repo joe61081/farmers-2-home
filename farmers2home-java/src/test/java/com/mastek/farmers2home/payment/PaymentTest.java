@@ -10,7 +10,9 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.mastek.farmers2home.order.Order;
 import com.mastek.farmers2home.order.OrderJPADAO;
+import com.mastek.farmers2home.order.OrderService;
 import com.mastek.farmers2home.payment.Payment;
 import com.mastek.farmers2home.payment.PaymentJPADAO;
 import com.mastek.farmers2home.payment.PaymentService;
@@ -19,7 +21,6 @@ import com.mastek.farmers2home.payment.PaymentType;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 public class PaymentTest {
 	
 	@Autowired
@@ -28,6 +29,8 @@ public class PaymentTest {
 	PaymentService paymentservice;
 	@Autowired
 	OrderJPADAO orderdao;
+	@Autowired
+	OrderService orderservice;
 	
 	@Test
 	public void testAddPayment() {
@@ -53,12 +56,16 @@ public class PaymentTest {
 	}
 	@Test
 	public void testAssignPaymentToOrder() {
-		Payment payment = paymentservice.assignPaymentToOrder(1, 1);
-		assertNotNull("Payment Not Assigned", payment.getOrderAssigned());
+	Payment payment = paymentservice.assignOrderToPayment(2, 2);
+	assertNotNull("Payment Not Assigned", payment.getOrderAssigned());
+	
+		
+		
+	}
 
-	}
+
+}
 				
-	}
 
 		
 	

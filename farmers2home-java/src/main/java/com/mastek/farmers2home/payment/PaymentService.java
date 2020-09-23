@@ -38,13 +38,17 @@ public class PaymentService {
 
 }
 	@Transactional
-	public Payment assignPaymentToOrder(int paymentid, int orderid) {
-		Payment payment = paymentDAO.findById(paymentid).get();
-		Order order = orderDAO.findById(orderid).get();
+	public Payment assignOrderToPayment(int Orderid, int Paymentid) {
+		Order order = orderDAO.findById(Orderid).get();
+		Payment payment = paymentDAO.findById(Paymentid).get();
 		
-		payment.getOrderAssigned();
+		order.setPaymentAssigned(payment);
+		payment.setOrderAssigned(order);
+		
+		orderDAO.save(order);
 		paymentDAO.save(payment);
 		return payment;
+
 		}
 
 	

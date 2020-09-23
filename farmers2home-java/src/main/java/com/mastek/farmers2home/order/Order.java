@@ -27,6 +27,7 @@ import com.mastek.farmers2home.payment.Payment;
 @Table(name="customer_orders")
 public class Order {
 	
+
 	int orderId;
 	
 	@FormParam("order price")
@@ -36,7 +37,7 @@ public class Order {
 	orderStatus orderStatus;
 	
 	@FormParam("order date")
-	Date orderDate;
+	String orderDate;
 	
 	boolean isSubscription;
 	
@@ -99,12 +100,10 @@ public class Order {
 	public void setOrderStatus(orderStatus orderStatus) {
 		this.orderStatus = orderStatus;
 	}
-
-	public Date getOrderDate() {
+	public String getOrderDate() {
 		return orderDate;
 	}
-
-	public void setOrderDate(Date orderDate) {
+	public void setOrderDate(String orderDate) {
 		this.orderDate = orderDate;
 	}
 
