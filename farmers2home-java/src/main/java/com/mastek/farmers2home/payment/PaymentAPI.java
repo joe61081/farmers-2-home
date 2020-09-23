@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType;
 import com.mastek.farmers2home.order.Order;
 
 
-@Path("/farmers2home/")
+@Path("/")
 public interface PaymentAPI {
 
 

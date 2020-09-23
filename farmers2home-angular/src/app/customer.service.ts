@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Customer } from './customer';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Customer } from './customer';
 })
 export class CustomerService {
   rootURL: string;
-  private currentUserSubject: BehaviorSubject<Customer>;
+  isLoggedIn:boolean;
   public currentUser: Observable<Customer>;
 
   constructor(private httpsvc:HttpClient) { 
@@ -45,10 +45,28 @@ export class CustomerService {
     return this.httpsvc.post(this.rootURL+"/customer/login", params.toString(), httpOpts).subscribe(
       (result:any) => {
         localStorage.setItem('currentUser', JSON.stringify(result));
+        this.isLoggedIn= true;
         // change route to the profile component
         //this.router.navigate(['profile']);
       }
     )
+  }
+
+  getCustomerOrders(customerId: number){
+    return this.httpsvc.get(this.rootURL+"/customer/orders/"+customerId);
+  }
+
+  customerLogout(){
+    localStorage.removeItem("currentUser");
+    this.isLoggedIn = false;
+  }
+
+  checkIsLoggedIn(){
+    if(localStorage.getItem("currentUser")){
+      return true;
+    }else{
+      return false;
+    }
   }
 
 }

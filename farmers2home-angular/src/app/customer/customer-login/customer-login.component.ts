@@ -13,10 +13,7 @@ export class CustomerLoginComponent implements OnInit {
   emailAddress: string; 
   password: string;
 
-  // public isLoggedIn: boolean;
-
   constructor(private formBuilder: FormBuilder, private custService: CustomerService) {
-    // this.isLoggedIn = this.isLoggedInCheck();
    }
 
   ngOnInit(): void {
@@ -33,17 +30,5 @@ export class CustomerLoginComponent implements OnInit {
   customerLogin(email: string, password: string){
     this.custService.getCustomerLogin(email, password)
   }
-
-  customerLogout(){
-    localStorage.removeItem("currentUser");
-  }
-
-  // isLoggedInCheck(){
-  //   if(localStorage.getItem("currentUser")){
-  //     return true;
-  //   }else{
-  //     return false;
-  //   }
-  // }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-customer',
@@ -9,10 +9,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CustomerComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(custService: CustomerService) { }
 
   ngOnInit(): void {
   }
 
+  getCustomerOrders(){
+
+  }
 
 }

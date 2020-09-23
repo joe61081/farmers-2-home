@@ -1,9 +1,5 @@
-import { style } from '@angular/animations';
 import { Component } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Customer } from './customer';
 import { CustomerService } from './customer.service';
-import { CustomerLoginComponent } from './customer/customer-login/customer-login.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +10,9 @@ export class AppComponent {
 
   themeMode: boolean;
 
-  constructor() { 
+  constructor(public custService:CustomerService) { 
+    this.custService.isLoggedIn = custService.checkIsLoggedIn();
+
     if(localStorage.getItem('themeMode')){
       this.themeMode = JSON.parse(localStorage.getItem('themeMode'));
     }else{
