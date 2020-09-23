@@ -36,6 +36,9 @@ public class OrderTest {
 		order.setOrderStatus(orderStatus.RECEIVED);
 		order.setSubscription(true);
 	}
+	public void testDeleteOrder() {
+		orderDAO.deleteById(3);
+	}
 		
 	}
 		

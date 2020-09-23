@@ -52,15 +52,16 @@ public class PaymentTest {
 		System.out.println("Print all payments");
 		for (Payment payment : paymentdao.findAll()) {
 			System.out.println(payment);
-	}
+		}
 	}
 	@Test
 	public void testAssignPaymentToOrder() {
 	Payment payment = paymentservice.assignOrderToPayment(2, 2);
-	assertNotNull("Payment Not Assigned", payment.getOrderAssigned());
-	
-		
-		
+	assertNotNull("Payment Not Assigned", payment.getOrderAssigned());	
+	}
+	@Test
+	public void testDeletePayment() {
+		paymentdao.deleteById(7);
 	}
 
 
