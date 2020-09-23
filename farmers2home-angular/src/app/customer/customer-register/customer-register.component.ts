@@ -21,7 +21,7 @@ export class CustomerRegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.customerRegisterForm = this.formBuilder.group({
-      customerName: new FormControl('', [Validators.required]),
+      customerName: ['', Validators.required],
       customerEmail: ['', Validators.required],
       customerPassword: ['', Validators.required],
       customerAddress: ['', Validators.required],

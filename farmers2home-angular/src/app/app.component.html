@@ -42,7 +42,7 @@
         </li>
         <li class="nav-item">
           <label class="btn btn-primary active">
-            <input type="checkbox" checked="checked" (change)="toggleTheme()"> Dark Theme
+            <input type="checkbox" [checked]="themeMode" (change)="toggleTheme()"> Dark Theme
           </label>
         </li>
       </ul>

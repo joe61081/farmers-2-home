@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CustomerService } from 'src/app/customer.service';
 
 @Component({
   selector: 'app-customer-login',
@@ -12,13 +13,37 @@ export class CustomerLoginComponent implements OnInit {
   emailAddress: string; 
   password: string;
 
-  constructor() { }
+  // public isLoggedIn: boolean;
+
+  constructor(private formBuilder: FormBuilder, private custService: CustomerService) {
+    // this.isLoggedIn = this.isLoggedInCheck();
+   }
 
   ngOnInit(): void {
+    this.customerLoginForm = this.formBuilder.group({
+      customerEmail: ['', Validators.required],
+      customerPassword: ['', Validators.required]
+  });
   }
 
   onSubmit(){
     
   }
+
+  customerLogin(email: string, password: string){
+    this.custService.getCustomerLogin(email, password)
+  }
+
+  customerLogout(){
+    localStorage.removeItem("currentUser");
+  }
+
+  // isLoggedInCheck(){
+  //   if(localStorage.getItem("currentUser")){
+  //     return true;
+  //   }else{
+  //     return false;
+  //   }
+  // }
 
 }
