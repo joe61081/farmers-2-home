@@ -36,12 +36,6 @@ public interface PaymentAPI {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Payment registerNewPayment(@BeanParam Payment newPayment);
 	
-
-	
-	@GET
-	@Path("/payment/order/{orderId}")
-	@Produces({MediaType.APPLICATION_FORM_URLENCODED})
-	public Set<Payment>getPaymentOrders(@PathParam("payment Id")int paymentId);
 	
 
 	@POST
