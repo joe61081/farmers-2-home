@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Customer } from 'src/app/customer';
 import { CustomerService } from 'src/app/customer.service';
 
@@ -21,7 +21,7 @@ export class CustomerRegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.customerRegisterForm = this.formBuilder.group({
-      customerName: ['', Validators.required],
+      customerName: new FormControl('', [Validators.required]),
       customerEmail: ['', Validators.required],
       customerPassword: ['', Validators.required],
       customerAddress: ['', Validators.required],
