@@ -21,6 +21,7 @@ import com.mastek.farmers2home.payment.PaymentType;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 public class PaymentTest {
 	
 	@Autowired
@@ -54,14 +55,17 @@ public class PaymentTest {
 			System.out.println(payment);
 		}
 	}
+
 	@Test
 	public void testAssignPaymentToOrder() {
-	Payment payment = paymentservice.assignOrderToPayment(2, 2);
-	assertNotNull("Payment Not Assigned", payment.getOrderAssigned());	
+	Payment payment = paymentservice.assignOrderToPayment(1, 2);
+	assertNotNull("Payment Not Assigned", payment.getOrderAssigned());
 	}
+
 	@Test
 	public void testDeletePayment() {
-		paymentdao.deleteById(7);
+		paymentdao.deleteById(1);
+
 	}
 
 

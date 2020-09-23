@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlTransient;
 
 import com.mastek.farmers2home.farmer.Farmer;
@@ -23,15 +24,25 @@ import com.mastek.farmers2home.order.OrderItem;
 @Table(name="Products")
 public class Product {
 	int productId;
+
+	@FormParam(value = "productName")
 	String productName;
+
+	@FormParam(value = "productDesc")
 	String productDesc;
+
+	@FormParam(value = "productCat")
 	ProductCat productCat;
+
+	@FormParam(value = "productPrice")
 	double productPrice;
+
+	@FormParam(value = "stockQuantity")
 	int stockQuantity;
-	
+
 	Set <OrderItem> orderItemAssigned = new HashSet<>();
 	Set <Farmer> farmerAssigned = new HashSet<>();
-	
+
 	@ManyToMany(mappedBy="productAssigned")
 	@XmlTransient
 	public Set<Farmer> getFarmerAssigned() {
@@ -69,7 +80,7 @@ public class Product {
 	public void setProductDesc(String productDesc) {
 		this.productDesc = productDesc;
 	}
-	
+
 	@Enumerated(EnumType.STRING)
 	public ProductCat getProductCat() {
 		return productCat;
@@ -115,5 +126,5 @@ public class Product {
 				+ ", productCat=" + productCat + ", productPrice=" + productPrice + ", stockQuantity=" + stockQuantity
 				+ "]";
 	}
-	
+
 }

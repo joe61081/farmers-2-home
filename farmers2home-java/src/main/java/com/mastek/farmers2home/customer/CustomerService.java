@@ -11,29 +11,23 @@ import javax.ws.rs.core.MediaType;
 import java.util.Set;
 
 @Component
-@Path("/customer")
-public class CustomerService {
+public class CustomerService implements CustomerAPI {
 
     @Autowired
     CustomerJPADAO customerDao;
-
 
     public Customer addCustomer(Customer newCustomer) {
         customerDao.save(newCustomer);
         return newCustomer;
     }
-    
-//    Customer customer = customerDao.findCustomerLogin(email, password);
-//        return customer;
-        
+
     public Customer getCustomerLogin(String email, String password){
-         return customerDao.findCustomerLogin(email, password);
+        return customerDao.findCustomerLogin(email, password);
     }
 
     public Set<Order> getCustomerOrders(int custId){
         Customer customer = customerDao.findById(custId).get();
         return customer.getOrders();
-
     }
 
 }

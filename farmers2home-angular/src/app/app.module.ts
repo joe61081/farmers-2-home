@@ -7,6 +7,7 @@ import { CustomerComponent } from './customer/customer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomerRegisterComponent } from './customer/customer-register/customer-register.component';
 import { CustomerLoginComponent } from './customer/customer-login/customer-login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CustomerLoginComponent } from './customer/customer-login/customer-login
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
