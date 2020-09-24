@@ -8,13 +8,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomerRegisterComponent } from './customer/customer-register/customer-register.component';
 import { CustomerLoginComponent } from './customer/customer-login/customer-login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomerProfileComponent } from './customer/customer-profile/customer-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerComponent,
+    CustomerProfileComponent,
     CustomerRegisterComponent,
-    CustomerLoginComponent
+    CustomerLoginComponent,
+  
+    CustomerProfileComponent
   ],
   imports: [
     BrowserModule,

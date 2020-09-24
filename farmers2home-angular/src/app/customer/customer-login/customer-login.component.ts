@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/customer.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class CustomerLoginComponent implements OnInit {
   emailAddress: string; 
   password: string;
 
-  constructor(private formBuilder: FormBuilder, private custService: CustomerService) {
+  constructor(private formBuilder: FormBuilder, private custService: CustomerService, private router:Router) {
    }
 
   ngOnInit(): void {
@@ -29,6 +30,8 @@ export class CustomerLoginComponent implements OnInit {
 
   customerLogin(email: string, password: string){
     this.custService.getCustomerLogin(email, password)
+
+    this.router.navigate(['/customer/profile']);
   }
 
 }

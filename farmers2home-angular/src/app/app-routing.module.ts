@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CustomerLoginComponent } from './customer/customer-login/customer-login.component';
+import { CustomerProfileComponent } from './customer/customer-profile/customer-profile.component';
 import { CustomerRegisterComponent } from './customer/customer-register/customer-register.component';
 import { CustomerComponent } from './customer/customer.component';
 
 const routes: Routes = [
   { path: 'customer', component: CustomerComponent,
   children: [
+    {
+      path: 'profile',
+      component: CustomerProfileComponent, 
+    },
     {
       path: 'register',
       component: CustomerRegisterComponent, 

@@ -10,15 +10,25 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link " href="#">All Products</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Products
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">All Products</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Fresh</a>
+          <a class="dropdown-item" href="#">Produce</a>
+          <a class="dropdown-item" href="#">Dairy</a>
+          <a class="dropdown-item" href="#">General</a>
+        </div>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Customer
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Orders</a>
+          <a class="dropdown-item" href="/customer/profile">Profile</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/customer/login" *ngIf="!custService.isLoggedIn">Login</a>
           <a class="dropdown-item" href="/customer/register" *ngIf="!custService.isLoggedIn">Register</a>

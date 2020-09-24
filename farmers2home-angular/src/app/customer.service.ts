@@ -9,9 +9,10 @@ import { Customer } from './customer';
 export class CustomerService {
   rootURL: string;
   isLoggedIn:boolean;
-  public currentUser: Observable<Customer>;
+  currentUser: Customer;
 
   constructor(private httpsvc:HttpClient) { 
+    this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
     this.rootURL = "http://localhost:8080/farmers2home"
   }
@@ -44,10 +45,11 @@ export class CustomerService {
 
     return this.httpsvc.post(this.rootURL+"/customer/login", params.toString(), httpOpts).subscribe(
       (result:any) => {
+        if(result){
         localStorage.setItem('currentUser', JSON.stringify(result));
+        this.currentUser = result;
         this.isLoggedIn= true;
-        // change route to the profile component
-        //this.router.navigate(['profile']);
+        }
       }
     )
   }
