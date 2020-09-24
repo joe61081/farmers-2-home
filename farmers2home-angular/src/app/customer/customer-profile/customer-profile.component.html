@@ -15,4 +15,23 @@
     </thead>
 </table>
 
+<table [ngClass]="'light'" class="table table-bordered col-sm-8 offset-sm-2" *ngIf="custService.isLoggedIn">
+    <caption [ngClass]="'light'">My Orders</caption>
+    <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Order Price</th>
+      <th>Order Status</th>
+      <th>Order Date</th>
+      <th>Subscription</th>
+    </tr>
+    <tr class="orderRow" *ngFor = "let row of orders" (click)="orderDetails(row.orderId)">
+        <td *ngFor = "let column of headers">
+          {{row[column]}}
+        </td>
+      </tr>
+    </thead>
+</table>
+
+
 <h2 *ngIf="!custService.isLoggedIn">Please Sign In!</h2>

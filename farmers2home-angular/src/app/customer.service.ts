@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Customer } from './customer';
+import { Order } from './order';
 
 @Injectable({
   providedIn: 'root'
@@ -54,8 +55,8 @@ export class CustomerService {
     )
   }
 
-  getCustomerOrders(customerId: number){
-    return this.httpsvc.get(this.rootURL+"/customer/orders/"+customerId);
+  getCustomerOrders(customerId: number):Observable<Order[]>{
+    return this.httpsvc.get<Order[]>(this.rootURL+"/customer/orders/"+customerId);
   }
 
   customerLogout(){
