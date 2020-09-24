@@ -1,15 +1,19 @@
-<table [ngClass]="'light'" class="table col-sm-8 offset-sm-2" *ngIf="custService.isLoggedIn">
+<table [ngClass]="'light'" class="table col-sm-2 offset-sm-5" *ngIf="custService.isLoggedIn">
     <thead>
     <tr>
       <th>Email Address</th>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Contact</th>
+      <td>{{custService.currentUser.emailAddress}}</td>
     </tr>
     <tr>
-      <td>{{custService.currentUser.emailAddress}}</td>
+      <th>Name</th>
       <td>{{custService.currentUser.customerName}}</td>
+    </tr>
+    <tr>
+      <th>Address</th>
       <td>{{custService.currentUser.customerAddress}}</td>
+    </tr>
+    <tr>
+      <th>Contact</th>
       <td>{{custService.currentUser.customerContact}}</td>
     </tr>
     </thead>
