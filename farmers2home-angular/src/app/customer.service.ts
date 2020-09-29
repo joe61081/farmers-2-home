@@ -36,7 +36,7 @@ export class CustomerService {
     );
   }
 
-  getCustomerLogin(email: string, password: string){
+  async getCustomerLogin(email: string, password: string){
     const httpOpts = {
       headers: new HttpHeaders({"Content-Type":"application/x-www-form-urlencoded"})
     }
@@ -44,19 +44,17 @@ export class CustomerService {
     params.set('email', email)
     params.set('pass', password)
 
-    return this.httpsvc.post(this.rootURL+"/customer/login", params.toString(), httpOpts).subscribe(
-      (result:any) => {
-        if(result){
-        localStorage.setItem('currentUser', JSON.stringify(result));
-        this.currentUser = result;
-        this.isLoggedIn= true;
-        }
+    const result = await this.httpsvc.post<Customer>(this.rootURL+"/customer/login", params.toString(), httpOpts).toPromise();
+    if(result){
+      this.currentUser = result;
+      localStorage.setItem('currentUser', JSON.stringify(result));
+      this.isLoggedIn= true;
       }
-    )
+      return result;
   }
 
-  getCustomerOrders(customerId: number):Observable<Order[]>{
-    return this.httpsvc.get<Order[]>(this.rootURL+"/customer/orders/"+customerId);
+  getCustomerOrders():Observable<Order[]>{
+    return this.httpsvc.get<Order[]>(this.rootURL+"/customer/orders/"+this.currentUser.customerId);
   }
 
   customerLogout(){
