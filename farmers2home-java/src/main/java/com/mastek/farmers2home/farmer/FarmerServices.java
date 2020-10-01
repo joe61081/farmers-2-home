@@ -63,8 +63,7 @@ public class FarmerServices implements FarmerAPI {
 	}
 
 	@Override
-	public Iterable<Farmer> findByEmailAndPassword(String email, String password) {
-		Iterable<Farmer> farmer = farmerDAO.findByEmailAndPassword(email, password);
-		return farmer;
+	public Farmer getFarmerLogin(String email, String password) {
+		return farmerDAO.findFarmerLogin(email, password);
 	}
 }

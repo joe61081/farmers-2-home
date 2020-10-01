@@ -1,0 +1,24 @@
+<table [ngClass]="'light'" class="table col-sm-2 offset-sm-5" *ngIf="farmerService.isLoggedIn">
+    <thead>
+        <tr>
+          <th>Email Address</th>
+          <td>{{farmerService.currentFarmer.email}}</td>
+        </tr>
+        <tr>
+          <th>First Name</th>
+          <td>{{farmerService.currentFarmer.farmerFirstName}}</td>
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <td>{{farmerService.currentFarmer.farmerLastName}}</td>
+        </tr>
+        <tr>
+          <th>Location</th>
+          <td>{{farmerService.currentFarmer.farmerLocation}}</td>
+        </tr>
+        <tr>
+          <th>Contact</th>
+          <td>{{farmerService.currentFarmer.farmerContact}}</td>
+        </tr>
+        </thead>
+    </table>

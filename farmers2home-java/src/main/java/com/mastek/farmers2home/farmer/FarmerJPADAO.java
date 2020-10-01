@@ -1,12 +1,14 @@
 
 package com.mastek.farmers2home.farmer;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-@Repository
+@RepositoryRestResource(path = "farmer")
 public interface FarmerJPADAO extends CrudRepository<Farmer, Integer> {
 
-    Iterable<Farmer> findByEmailAndPassword(@Param("email")String email, @Param("password")String password);
+	@Query("select a from Farmer a where a.email=:email and a.password=:password")
+    public Farmer findFarmerLogin(@Param("email")String email, @Param("password")String password);
 }

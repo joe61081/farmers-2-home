@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlTransient;
@@ -22,8 +21,6 @@ import com.mastek.farmers2home.product.Product;
 
 @Entity
 @Table(name="farmer")
-@NamedQuery(name="Farmer.findByEmailAndPassword",
-		query="select a from Farmer a where a.email=:email and a.password=:password")
 public class Farmer {
 
 	private int farmerId;

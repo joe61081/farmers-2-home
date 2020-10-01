@@ -40,10 +40,11 @@
           Farmer
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">My Products</a>
+          <a class="dropdown-item" href="/farmers/profile">My Products</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Login</a>
-          <a class="dropdown-item" href="#">Register</a>
+          <a class="dropdown-item" href="/farmers/login" *ngIf="!farmerService.isLoggedIn">Login</a>
+          <a class="dropdown-item" href="/farmers/register" *ngIf="!farmerService.isLoggedIn">Register</a>
+          <a class="dropdown-item" href="/farmers/login" *ngIf="farmerService.isLoggedIn" (click)="farmerService.farmerLogout()">Logout</a>
         </div>
       </li>
     </ul>

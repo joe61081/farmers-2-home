@@ -9,6 +9,10 @@ import { CustomerRegisterComponent } from './customer/customer-register/customer
 import { CustomerLoginComponent } from './customer/customer-login/customer-login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerProfileComponent } from './customer/customer-profile/customer-profile.component';
+import { FarmerComponent } from './farmer/farmer.component';
+import { FarmerProfileComponent } from './farmer/farmer-profile/farmer-profile.component';
+import { FarmerRegisterComponent } from './farmer/farmer-register/farmer-register.component';
+import { FarmerLoginComponent } from './farmer/farmer-login/farmer-login.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,15 @@ import { CustomerProfileComponent } from './customer/customer-profile/customer-p
     CustomerRegisterComponent,
     CustomerLoginComponent,
   
-    CustomerProfileComponent
+    CustomerProfileComponent,
+  
+    FarmerComponent,
+  
+    FarmerLoginComponent,
+  
+    FarmerProfileComponent,
+  
+    FarmerRegisterComponent
   ],
   imports: [
     BrowserModule,

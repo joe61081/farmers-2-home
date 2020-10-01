@@ -49,9 +49,9 @@ public interface FarmerAPI {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Product registerProductForFarmer(@FormParam("farmerId") int farmerId, @BeanParam Product newProduct);
 
-	// GET http://localhost:8080/farmers2home/farmers/login/{email}/{password}
-	@GET
-	@Path("/farmers/login/{email}/{password}")
-	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-	public Iterable<Farmer> findByEmailAndPassword(@PathParam("email") String email, @PathParam("password") String password);
+	// POST http://localhost:8080/farmers2home/farmers/login
+	@POST
+	@Path("/farmers/login")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Farmer getFarmerLogin(@FormParam("email") String email, @FormParam("password") String password);
 }

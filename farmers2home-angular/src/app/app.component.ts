@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CustomerService } from './customer.service';
+import { FarmerService } from './farmer/farmer.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ export class AppComponent {
 
   themeMode: boolean;
 
-  constructor(public custService:CustomerService) { 
+  constructor(public custService:CustomerService, public farmerService:FarmerService) {
+    this.farmerService.isLoggedIn=farmerService.checkIsLoggedIn(); 
     this.custService.isLoggedIn = custService.checkIsLoggedIn();
 
     if(localStorage.getItem('themeMode')){

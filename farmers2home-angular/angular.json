@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "farmers2home-angular"
+    }
+  },
+  "defaultProject": "farmers2home-angular",
+  "cli": {
+    "analytics": false
+  }
 }
