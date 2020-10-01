@@ -28,10 +28,10 @@ export class CustomerLoginComponent implements OnInit {
     
   }
 
-  customerLogin(email: string, password: string){
-    this.custService.getCustomerLogin(email, password)
-
-    this.router.navigate(['/customer/profile']);
+   customerLogin(email: string, password: string){
+    this.custService.getCustomerLogin(email, password).then(()=>{
+      this.router.navigate(['/customer/profile']);
+    });
   }
 
 }

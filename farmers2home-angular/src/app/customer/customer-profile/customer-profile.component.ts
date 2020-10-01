@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { CustomerService } from 'src/app/customer.service';
 import { Order } from 'src/app/order';
 
@@ -18,12 +17,12 @@ export class CustomerProfileComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.getCustomerOrders().subscribe(res=>this.orders=res);
+    this.getCustomerOrders();
   }
 
   getCustomerOrders(){
     if(this.custService.isLoggedIn == true){
-      return this.custService.getCustomerOrders(this.custService.currentUser.customerId);
+      return this.custService.getCustomerOrders().subscribe(res=>this.orders=res);
     }
   }
 
