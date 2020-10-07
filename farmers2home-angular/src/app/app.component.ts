@@ -12,8 +12,9 @@ export class AppComponent {
   themeMode: boolean;
 
   constructor(public custService:CustomerService, public farmerService:FarmerService) {
-    this.farmerService.isLoggedIn=farmerService.checkIsLoggedIn(); 
+    this.farmerService.isLoggedIn = farmerService.checkIsLoggedIn(); 
     this.custService.isLoggedIn = custService.checkIsLoggedIn();
+    
 
     if(localStorage.getItem('themeMode')){
       this.themeMode = JSON.parse(localStorage.getItem('themeMode'));
