@@ -9,6 +9,7 @@ export class FarmerComponent implements OnInit {
 
   constructor() { }
 
+  
   ngOnInit(): void {
   }
 

@@ -64,5 +64,6 @@ checkIsLoggedIn(){
   }else{
     return false;
   }
+  
 }
 }
