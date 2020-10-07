@@ -8,6 +8,8 @@ import { FarmerComponent } from './farmer/farmer.component';
 import { FarmerProfileComponent } from './farmer/farmer-profile/farmer-profile.component';
 import { FarmerRegisterComponent } from './farmer/farmer-register/farmer-register.component';
 import { FarmerLoginComponent } from './farmer/farmer-login/farmer-login.component';
+import { ProductComponent } from './product/product.component';
+import { ProductRegisterComponent } from './product/product-register/product-register.component';
 
 const routes: Routes = [
   { path: 'customer', component: CustomerComponent,
@@ -39,6 +41,13 @@ const routes: Routes = [
        path: 'login',
        component: FarmerLoginComponent, 
      }]
+    },
+    { path: 'product', component: ProductComponent,
+   children: [
+     {
+       path: 'register',
+       component: ProductRegisterComponent, 
+     }]
     }
 ];
 
@@ -46,4 +55,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

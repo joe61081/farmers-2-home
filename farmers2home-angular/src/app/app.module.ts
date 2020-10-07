@@ -13,6 +13,8 @@ import { FarmerComponent } from './farmer/farmer.component';
 import { FarmerProfileComponent } from './farmer/farmer-profile/farmer-profile.component';
 import { FarmerRegisterComponent } from './farmer/farmer-register/farmer-register.component';
 import { FarmerLoginComponent } from './farmer/farmer-login/farmer-login.component';
+import { ProductRegisterComponent } from './product/product-register/product-register.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -21,16 +23,12 @@ import { FarmerLoginComponent } from './farmer/farmer-login/farmer-login.compone
     CustomerProfileComponent,
     CustomerRegisterComponent,
     CustomerLoginComponent,
-  
-    CustomerProfileComponent,
-  
     FarmerComponent,
-  
     FarmerLoginComponent,
-  
     FarmerProfileComponent,
-  
-    FarmerRegisterComponent
+    FarmerRegisterComponent,
+    ProductComponent,
+    ProductRegisterComponent
   ],
   imports: [
     BrowserModule,
