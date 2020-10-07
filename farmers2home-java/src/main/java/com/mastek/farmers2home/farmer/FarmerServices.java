@@ -1,5 +1,6 @@
 package com.mastek.farmers2home.farmer;
 
+
 import java.util.Set;
 
 import javax.transaction.Transactional;
@@ -18,6 +19,8 @@ public class FarmerServices implements FarmerAPI {
 
 	@Autowired
 	ProductJPADAO productDAO;
+
+
 
 	@Transactional
 	public Farmer assignFarmerToProduct(int farmerId, int productId) {
@@ -55,15 +58,22 @@ public class FarmerServices implements FarmerAPI {
 		return products;
 	}
 
-	@Override
-	public Product registerProductForFarmer(int farmerId, Product newProduct) {
-		newProduct = productDAO.save(newProduct);
-		assignFarmerToProduct(farmerId, newProduct.getProductId());
-		return newProduct;
-	}
 
 	@Override
 	public Farmer getFarmerLogin(String email, String password) {
 		return farmerDAO.findFarmerLogin(email, password);
 	}
+
+	@Override
+	public Product registerProductForFarmer(int farmerId, Product newProduct) {
+
+		newProduct = productDAO.save(newProduct);
+
+		assignFarmerToProduct(farmerId, newProduct.getProductId());
+
+		return newProduct;
+
+	}
+
+
 }

@@ -3,7 +3,6 @@ package com.mastek.farmers2home.order;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -35,6 +34,8 @@ public class OrderTest {
 		order.setOrderPrice(70.00);
 		order.setOrderStatus(orderStatus.RECEIVED);
 		order.setSubscription(true);
+
+		orderDAO.save(order);
 	}
 	public void testDeleteOrder() {
 		orderDAO.deleteById(3);

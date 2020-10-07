@@ -1,8 +1,6 @@
 
 package com.mastek.farmers2home.order;
 
-import com.mastek.farmers2home.product.Product;
-import com.mastek.farmers2home.product.ProductJPADAO;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +9,9 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import com.mastek.farmers2home.product.Product;
+import com.mastek.farmers2home.product.ProductJPADAO;
 
 
 @RunWith(SpringRunner.class)
@@ -37,6 +38,8 @@ public class OrderItemServiceTest {
         Product product = productJPADAO.findById(1).get();
 
         OrderItem orderItem = orderItemService.addProductToOrder(order, product, 1);
+
+		orderItemJPADAO.save(orderItem);
 
         Assert.assertNotNull(orderJPADAO.findById(orderItem.getOrderItemId()));
 

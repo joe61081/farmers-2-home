@@ -1,13 +1,13 @@
 package com.mastek.farmers2home.order;
 
-import com.mastek.farmers2home.customer.Customer;
-import com.mastek.farmers2home.product.Product;
-import com.mastek.farmers2home.product.ProductJPADAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.mastek.farmers2home.product.Product;
+import com.mastek.farmers2home.product.ProductJPADAO;
+
 @Component
-public class OrderItemService {
+public class OrderItemService implements OrderAPI {
 
     @Autowired
     OrderItemJPADAO orderItemJPADAO;
@@ -30,4 +30,22 @@ public class OrderItemService {
         orderItemJPADAO.save(orderItem);
         return orderItem;
     }
+
+	@Override
+	public Iterable<Order> listAllOrders() {
+		// TODO Auto-generated method stub
+		return orderJPADAO.findAll();
+	}
+
+	@Override
+	public Order findByOrderId(int orderId) {
+		// TODO Auto-generated method stub
+		return orderJPADAO.findById(orderId).get();
+	}
+
+	@Override
+	public Order registerNewOrder(Order newOrder) {
+		newOrder = orderJPADAO.save(newOrder);
+		return newOrder;
+	}
 }

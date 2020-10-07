@@ -4,17 +4,15 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.transaction.Transactional;
 
-import org.jvnet.hk2.config.Element;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 
 import com.mastek.farmers2home.payment.Payment;
 import com.mastek.farmers2home.payment.PaymentJPADAO;
 
 
 @Component
-public class OrderService {
+public class OrderService implements OrderAPI {
 
 	@Autowired
 	OrderJPADAO orderDAO;
@@ -22,6 +20,20 @@ public class OrderService {
 	@Autowired
 	PaymentJPADAO paymentDAO;
 	
+
+	@Override
+	public Order registerNewOrder(Order newOrder) {
+		newOrder = orderDAO.save(newOrder);
+		return newOrder;
+
+	}
+
+
+	@Override
+	public Order findByOrderId(int orderId) {
+
+		return orderDAO.findById(orderId).get();
+	}
 	public OrderService() {
 		System.out.println("Order Service Created");
 		
@@ -51,4 +63,13 @@ public class OrderService {
 		
 
 }
+
+
+	@Override
+	public Iterable<Order> listAllOrders() {
+		// TODO Auto-generated method stub
+		return orderDAO.findAll();
+	}
+
+
 }

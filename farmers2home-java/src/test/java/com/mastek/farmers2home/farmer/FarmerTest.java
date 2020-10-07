@@ -1,19 +1,15 @@
 package com.mastek.farmers2home.farmer;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.mastek.farmers2home.farmer.Farmer;
-import com.mastek.farmers2home.farmer.FarmerJPADAO;
-import com.mastek.farmers2home.farmer.FarmerServices;
 import com.mastek.farmers2home.product.ProductJPADAO;
 
 @RunWith(SpringRunner.class)
@@ -57,6 +53,8 @@ public class FarmerTest {
 	@Test
 	public void assignFarmerToProduct() {
 		Farmer farmer = farmerSVC.assignFarmerToProduct(1, 1);
+
 		assertTrue(farmer.getProductAssigned().size()>0);
+		System.out.println("Farmer assigned to Products" + farmer);
 	}
 }

@@ -1,14 +1,11 @@
 package com.mastek.farmers2home.customer;
 
-import com.mastek.farmers2home.order.Order;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.Transactional;
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import java.util.Set;
+import com.mastek.farmers2home.order.Order;
 
 @Component
 public class CustomerService implements CustomerAPI {
@@ -16,18 +13,27 @@ public class CustomerService implements CustomerAPI {
     @Autowired
     CustomerJPADAO customerDao;
 
-    public Customer addCustomer(Customer newCustomer) {
+    @Override
+	public Customer addCustomer(Customer newCustomer) {
         customerDao.save(newCustomer);
         return newCustomer;
     }
 
-    public Customer getCustomerLogin(String email, String password){
-        return customerDao.findCustomerLogin(email, password);
+    @Override
+	public Customer getCustomerLogin(String email, String password) {
+		return customerDao.findCustomerLogin(email, password);
     }
 
-    public Set<Order> getCustomerOrders(int custId){
+    @Override
+	public Set<Order> getCustomerOrders(int custId){
         Customer customer = customerDao.findById(custId).get();
         return customer.getOrders();
     }
+
+	@Override
+	public Customer findCustomerId(int customerId) {
+		// TODO Auto-generated method stub
+		return customerDao.findById(customerId).get();
+	}
 
 }

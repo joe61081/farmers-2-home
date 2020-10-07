@@ -27,7 +27,7 @@ public interface PaymentAPI {
 	@GET
 	@Path("/payment/find/{paymentId}")
 	@Produces({MediaType.APPLICATION_JSON})
-	public Payment findByPaymentId(@PathParam("paymentid")int paymentid);
+	public Payment findByPaymentId(@PathParam("paymentId") int paymentId);
 	
 
 	@POST

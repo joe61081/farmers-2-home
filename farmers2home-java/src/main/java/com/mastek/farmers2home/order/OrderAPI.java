@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 
 
 
-@Path("/")
+@Path("/farmers2home")
 public interface OrderAPI {
 	
 	@GET
@@ -22,11 +22,11 @@ public interface OrderAPI {
 	@GET
 	@Path("/Order/find/{OrderId}")
 	@Produces({MediaType.APPLICATION_JSON})
-	public Order findByOrderId(@PathParam("orderid")int orderid);
+	public Order findByOrderId(@PathParam("orderId") int orderId);
 	
 
 	@POST
-	@Path("/order/register")
+	@Path("/Order/register")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Order registerNewOrder(@BeanParam Order newOrder);

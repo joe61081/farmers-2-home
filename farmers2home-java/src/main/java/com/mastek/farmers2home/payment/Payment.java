@@ -1,7 +1,5 @@
 package com.mastek.farmers2home.payment;
 
-import com.mastek.farmers2home.order.Order;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,28 +13,30 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.ws.rs.FormParam;
 
+import com.mastek.farmers2home.order.Order;
+
 @Entity
 @Table(name="payment")
 public class Payment {
 	
 	private int PaymentId;
 	
-	@FormParam("total paid")
+	@FormParam("totalPaid")
 	private double TotalPaid;
 	
-	@FormParam("payment type")
+	@FormParam("paymentType")
 	private PaymentType PaymentType;
 	
-	@FormParam("payment date")
+	@FormParam("paymentDate")
 	private String PaymentDate;
 	
-	@FormParam("card number")
+	@FormParam("cardNumber")
 	private long CardNumber;
 	
-	@FormParam("sort code")
+	@FormParam("sorCode")
 	private int SortCode;
 	
-	@FormParam("Account number")
+	@FormParam("accounNumber")
 	private long AccountNumber;
 	
 	
