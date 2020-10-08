@@ -28,6 +28,8 @@
         
         <!-- <th scope="col">Name</th> -->
         <!-- <th scope="col">Basket ID</th> -->
+        <th class="farmer-product-heading" scope="col">Product Image</th>
+        <br>
         <th class="farmer-product-heading" scope="col">Product ID</th>
         <br>
         <th class="farmer-product-heading" scope="col">Product Name</th>
@@ -43,6 +45,9 @@
        
     
     <tr *ngFor="let prod of farmerProducts; let i = index">
+
+        <td> <img src="/assets/images/placeholder.jpg" height=100 class="placeholder-image"> </td>
+        <br>
         <td>{{prod.productId}}</td>
         <br>
         <td>{{prod.productName}}</td> 
