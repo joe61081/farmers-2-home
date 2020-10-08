@@ -23,7 +23,7 @@ import com.mastek.farmers2home.customer.Customer;
 import com.mastek.farmers2home.payment.Payment;
 
 @Entity
-@Table(name="customer_orders")
+@Table(name = "customer_orders")
 public class Order {
 	
 

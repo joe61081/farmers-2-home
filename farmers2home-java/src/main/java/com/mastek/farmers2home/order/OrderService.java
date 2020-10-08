@@ -29,26 +29,7 @@ public class OrderService implements OrderAPI {
 	}
 
 
-	@Override
-	public Order findByOrderId(int orderId) {
 
-		return orderDAO.findById(orderId).get();
-	}
-	public OrderService() {
-		System.out.println("Order Service Created");
-		
-}
-	@PostConstruct
-		public void initializeService() {
-		System.out.println("Order Service Initialized");
-}
-
-	@PreDestroy
-		public void terminateService() {
-		System.out.println("Order Service Terminated");
-		
-	}
-	
 
 	@Transactional
 	public Payment assignPaymenttoOrder(int orderId, int PaymentId) {
@@ -71,5 +52,27 @@ public class OrderService implements OrderAPI {
 		return orderDAO.findAll();
 	}
 
+
+	public OrderService() {
+		System.out.println("Order Service Created");
+
+	}
+
+	@PostConstruct
+	public void initializeService() {
+		System.out.println("Order Service Initialized");
+	}
+
+	@PreDestroy
+	public void terminateService() {
+		System.out.println("Order Service Terminated");
+
+	}
+
+	@Override
+	public Order findByOrderId(int orderId) {
+		// TODO Auto-generated method stub
+		return orderDAO.findById(orderId).get();
+	}
 
 }

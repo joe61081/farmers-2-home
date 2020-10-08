@@ -60,7 +60,7 @@ public class Farmer {
 	}
 
 	@Id
-	@Column(name="farmer_id")
+	@Column(name = "farmer_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getFarmerId() {
 		return farmerId;

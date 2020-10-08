@@ -20,16 +20,37 @@ public class FarmerServices implements FarmerAPI {
 	@Autowired
 	ProductJPADAO productDAO;
 
-
-
 	@Transactional
 	public Farmer assignFarmerToProduct(int farmerId, int productId) {
+
 		Farmer farmer = farmerDAO.findById(farmerId).get();
+
 		Product product = productDAO.findById(productId).get();
 
+
+
 		farmer.getProductAssigned().add(product);
+
 		farmerDAO.save(farmer);
+
 		return farmer;
+
+	}
+
+
+
+	@Override
+	@Transactional
+	public Product registerProductForFarmer(int farmerId, Product newProduct) {
+		
+		newProduct = productDAO.save(newProduct);
+
+		assignFarmerToProduct(farmerId, newProduct.getProductId());
+
+		return newProduct;
+
+		
+
 	}
 
 	@Override
@@ -64,16 +85,10 @@ public class FarmerServices implements FarmerAPI {
 		return farmerDAO.findFarmerLogin(email, password);
 	}
 
-	@Override
-	public Product registerProductForFarmer(int farmerId, Product newProduct) {
-
-		newProduct = productDAO.save(newProduct);
-
-		assignFarmerToProduct(farmerId, newProduct.getProductId());
-
-		return newProduct;
+//	@Override
+//	public Product registerProductForFarmer(int farmerId, int productId) {
 
 	}
 
 
-}
+

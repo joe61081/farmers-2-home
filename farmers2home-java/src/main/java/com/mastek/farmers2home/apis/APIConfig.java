@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 import com.mastek.farmers2home.customer.CustomerService;
 import com.mastek.farmers2home.farmer.FarmerServices;
-import com.mastek.farmers2home.order.OrderItemService;
 import com.mastek.farmers2home.order.OrderService;
 import com.mastek.farmers2home.payment.PaymentService;
 import com.mastek.farmers2home.product.ProductServices;
@@ -25,7 +24,7 @@ public class APIConfig extends ResourceConfig {
 		register(FarmerServices.class);
 		register(PaymentService.class);
 		register(OrderService.class);
-		register(OrderItemService.class);
+		// register(OrderItemService.class);
 		register(ProductServices.class);
 	}
 

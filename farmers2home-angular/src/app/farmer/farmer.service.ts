@@ -1,19 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Farmer } from '../farmer';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Product } from '../product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FarmerService {
   rootURL: string;
+  rootProductURL:string
   isLoggedIn:boolean;
   currentFarmer:Farmer
 
-  constructor(private httpsvc:HttpClient) {
+  constructor(public httpsvc:HttpClient) {
     this.currentFarmer = JSON.parse(localStorage.getItem("currentFarmer"));
 
     this.rootURL = "http://localhost:8080/farmers2home"
+    this.rootProductURL="http://localhost:8080/farmer2home/products"
+
    }
 
    addNewFarmer(newFarmer: Farmer){
@@ -34,6 +39,25 @@ export class FarmerService {
     );   
    }
 
+   getProducts():Observable<Product[]>{
+    return this.httpsvc.get<Product[]>(this.rootURL+"/products")
+  }
+  addProductToFarmer(farmerId:number, productId:number):Observable<Product[]>{
+    const httpOpts ={
+      headers: new HttpHeaders(
+        {'Content-Type':
+      'application/x-www-form-urlencoded;charset=UTF-8'}
+      )
+    }
+    var reqBody = "farmerId=" + farmerId + "&productId=" + productId
+
+    return this.httpsvc.post<Product[]>(
+      this.rootURL + "/farmer_to_product_assignment/", reqBody, httpOpts)
+  }
+
+
+
+
    getFarmerLogin(email: string, password: string){
     const httpOpts = {
       headers: new HttpHeaders({"Content-Type":"application/x-www-form-urlencoded"})
@@ -52,6 +76,20 @@ export class FarmerService {
       }
     )
 }
+addProduct(newProduct:Product):Observable<Product>{
+  const httpOpts ={
+    headers: new HttpHeaders(
+      {'Content-Type':
+       'application/x-www-form-urlencoded;charset=UTF-8'})
+  }
+
+  var reqBody="productName="+newProduct.productName+"&productDesc="
+  +newProduct.productDesc+"&productCat="+newProduct.productCat+"&productPrice="+newProduct.productPrice+"&productQuantity="+newProduct.stockQuantity
+
+  return this.httpsvc.post<Product>(
+    this.rootProductURL+"/add",reqBody,httpOpts)
+  
+  }
 
 farmerLogout(){
   localStorage.removeItem("currentFarmer");
