@@ -37,11 +37,11 @@ public class OrderTest {
 
 		orderDAO.save(order);
 	}
-	public void testDeleteOrder() {
-		orderDAO.deleteById(3);
-	}
+//	public void testDeleteOrder() {
+//		orderDAO.deleteById(3);
+//	}
 		
-	}
+}
 		
 	
 	
