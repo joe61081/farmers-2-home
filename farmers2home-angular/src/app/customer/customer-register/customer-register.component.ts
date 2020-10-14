@@ -11,6 +11,7 @@ import { CustomerService } from 'src/app/customer.service';
 })
 export class CustomerRegisterComponent implements OnInit {
   customerRegisterForm: FormGroup;
+  submitted = false;
 
   constructor(private formBuilder: FormBuilder, private custService: CustomerService, private router:Router) {
  
@@ -25,14 +26,31 @@ export class CustomerRegisterComponent implements OnInit {
   ngOnInit(): void {
     this.customerRegisterForm = this.formBuilder.group({
       customerName: ['', Validators.required],
-      customerEmail: ['', Validators.required],
+      customerEmail: ['', [Validators.required, Validators.email]],
       customerPassword: ['', Validators.required],
       customerAddress: ['', Validators.required],
-      customerContact: ['', Validators.required]
-  });
+      customerContact: ['', Validators.required],
+      confirm:['', [Validators.required, Validators.email]]
+  },{
+    validator: (form:FormGroup) => {return form.get('customerEmail').value !==
+    form.get('confirm').value ? { emailMismatch: true } : null}
+  }
+  );
   }
 
-  onSubmit() {
+   // convenience getter for easy access to form fields
+   get f(){ return this.customerRegisterForm.controls; }
+   get isEmailMismatch(){return this.customerRegisterForm.getError('emailMismatch')}
+
+  onSubmit(newCustomer) {
+    this.submitted=true;
+
+    if(this.customerRegisterForm.invalid){
+      return
+    } else{
+      console.log(JSON.stringify(this.customerRegisterForm.value))
+      this.addNewCustomer(newCustomer);
+    }
   }
   
 

@@ -12,6 +12,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+
 import com.mastek.farmers2home.product.Product;
 
 @Path("/")
@@ -54,4 +55,9 @@ public interface FarmerAPI {
 	@Path("/farmers/login")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Farmer getFarmerLogin(@FormParam("email") String email, @FormParam("password") String password);
+	
+	@POST
+	@Path("/farmers/emailcheck")
+	@Produces(MediaType.APPLICATION_JSON)
+	public boolean isEmailInUse(@FormParam("email")String email);
 }

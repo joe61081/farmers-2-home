@@ -11,4 +11,7 @@ public interface FarmerJPADAO extends CrudRepository<Farmer, Integer> {
 
 	@Query("select a from Farmer a where a.email=:email and a.password=:password")
     public Farmer findFarmerLogin(@Param("email")String email, @Param("password")String password);
+	
+	@Query("select user from Farmer user where user.email=:email")
+	public Farmer emailCheck(@Param("email")String email);
 }

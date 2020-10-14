@@ -9,6 +9,7 @@ export class FarmerService {
   rootURL: string;
   isLoggedIn:boolean;
   currentFarmer:Farmer
+  isEmailInUse:boolean
 
   constructor(private httpsvc:HttpClient) {
     this.currentFarmer = JSON.parse(localStorage.getItem("currentFarmer"));
@@ -32,6 +33,20 @@ export class FarmerService {
       (res) => console.log(res),
       (err) => console.log(err)
     );   
+   }
+
+   checkEmail(email: string){
+    const httpOpts = {
+      headers: new HttpHeaders({"Content-Type":"application/x-www-form-urlencoded"})
+    }
+    const params = new URLSearchParams();
+    params.set('email', email)
+
+    return this.httpsvc.post<boolean>(this.rootURL+"/farmers/emailcheck", params.toString(), httpOpts).subscribe(
+      Response => {
+        this.isEmailInUse = Response; 
+        }
+    )
    }
 
    getFarmerLogin(email: string, password: string){
