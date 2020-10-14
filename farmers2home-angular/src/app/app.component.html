@@ -1,3 +1,4 @@
+
 <body [ngClass]="{'dark' : themeMode, 'light': !themeMode}">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Farmers2Home</a>
@@ -54,82 +55,18 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" routerLink="/payment-checkout">Checkout</a>
         </div>
-      </li>
     </ul>
     <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Basket</a>
-        </li>
-        <li class="nav-item">
-          <label class="btn btn-primary active">
-            <input type="checkbox" [checked]="themeMode" (change)="toggleTheme()"> Dark Theme
-          </label>
-        </li>
-      </ul>
-  </div>
-</nav>
-<router-outlet></router-outlet>  
-</body>
-<body [ngClass]="{'dark' : themeMode, 'light': !themeMode}">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Farmers2Home</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Basket</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Products
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">All Products</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Fresh</a>
-          <a class="dropdown-item" href="#">Produce</a>
-          <a class="dropdown-item" href="#">Dairy</a>
-          <a class="dropdown-item" href="#">General</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Customer
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/customer/profile">Profile</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/customer/login" *ngIf="!custService.isLoggedIn">Login</a>
-          <a class="dropdown-item" href="/customer/register" *ngIf="!custService.isLoggedIn">Register</a>
-          <a class="dropdown-item" href="/customer/login" *ngIf="custService.isLoggedIn" (click)="custService.customerLogout()">Logout</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Farmer
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/farmers/profile">My Products</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/farmers/login" *ngIf="!farmerService.isLoggedIn">Login</a>
-          <a class="dropdown-item" href="/farmers/register" *ngIf="!farmerService.isLoggedIn">Register</a>
-          <a class="dropdown-item" href="/farmers/login" *ngIf="farmerService.isLoggedIn" (click)="farmerService.farmerLogout()">Logout</a>
-        </div>
+      <li class="nav-item">
+        <label class="btn btn-primary active">
+          <input type="checkbox" [checked]="themeMode" (change)="toggleTheme()"> Dark Theme
+        </label>
       </li>
     </ul>
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Basket</a>
-        </li>
-        <li class="nav-item">
-          <label class="btn btn-primary active">
-            <input type="checkbox" [checked]="themeMode" (change)="toggleTheme()"> Dark Theme
-          </label>
-        </li>
-      </ul>
+      
   </div>
 </nav>
 <h1 class="home-page-text">Fresh Fruit, Vegetables, Poultry and Dairy straight from the farm to your door!</h1>
