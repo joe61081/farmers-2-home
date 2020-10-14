@@ -29,52 +29,52 @@ public class Payment {
 	
 	private int paymentId;
 	
-	@FormParam("First Name")
+	@FormParam("firstName")
 	private String firstName;
 	
-	@FormParam("Last Name")
+	@FormParam("lastName")
 	private String lastName;
 	
-	@FormParam("Email")
+	@FormParam("email")
 	private String email;
 	
-	@FormParam("Address")
+	@FormParam("address")
 	private String address;
 	
-	@FormParam("City")
+	@FormParam("city")
 	private String city;
 	
-	@FormParam("County")
+	@FormParam("county")
 	private String county;
 	
-	@FormParam("PostCode")
+	@FormParam("postCode")
 	private String postCode;
 	
-	@FormParam("Payment Type")
+	@FormParam("paymentType")
 	private PaymentType paymentType;
 	
-	@FormParam("Name on Card")
+	@FormParam("nameOnCard")
 	private String nameOnCard;
 	
-	@FormParam("Card Number")
+	@FormParam("cardNumber")
 	private long cardNumber;
 	
-	@FormParam("Expiry Month")
+	@FormParam("expiryMonth")
 	private String expiryMonth;
 	
-	@FormParam("Expiry Year")
+	@FormParam("expiryYear")
 	private String expiryYear;
 	
-	@FormParam("Card Verification Value")
+	@FormParam("cvv")
 	private long cvv;
 	
-	@FormParam("Total Paid")
+	@FormParam("totalPaid")
 	private double totalPaid;
 	
-	@FormParam("Payment Date")
+	@FormParam("paymentDate")
 	private String paymentDate;
 	
-	@FormParam("Shipping Method")
+	@FormParam("shippingMethod")
 	private Shippingmethod shippingMethod;
 	
 	//RELATIONSHIPS 

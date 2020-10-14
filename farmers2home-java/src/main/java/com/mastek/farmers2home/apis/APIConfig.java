@@ -1,4 +1,3 @@
-
 package com.mastek.farmers2home.apis;
 
 import javax.ws.rs.ApplicationPath;
@@ -11,6 +10,7 @@ import com.mastek.farmers2home.farmer.FarmerServices;
 import com.mastek.farmers2home.order.OrderService;
 import com.mastek.farmers2home.payment.PaymentService;
 import com.mastek.farmers2home.product.ProductServices;
+
 
 @Component //declare it as spring component
 @ApplicationPath("/farmers2home/")
@@ -25,8 +25,9 @@ public class APIConfig extends ResourceConfig {
 		register(FarmerServices.class);
 		register(PaymentService.class);
 		register(OrderService.class);
-		// register(OrderItemService.class);
+		register(OrderService.class);
 		register(ProductServices.class);
 	}
 
 }
+
