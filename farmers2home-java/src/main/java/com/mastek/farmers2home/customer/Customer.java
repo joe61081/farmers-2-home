@@ -1,35 +1,43 @@
+
 package com.mastek.farmers2home.customer;
 
-import com.mastek.farmers2home.order.Order;
-import com.mastek.farmers2home.payment.Payment;
-
-import javax.persistence.*;
-import javax.ws.rs.FormParam;
-import javax.xml.bind.annotation.XmlTransient;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlTransient;
+
+import com.mastek.farmers2home.order.Order;
 
 @Entity
 @Table(name="customer")
 public class Customer {
 
-	private int customerId;
+    private int customerId;
 
-    @FormParam("email")
+	@FormParam("email")
     private String emailAddress;
-    @FormParam("pass")
+	@FormParam("pass")
     private String password;
-    @FormParam("name")
+	@FormParam("name")
     private String customerName;
-    @FormParam("address")
+	@FormParam("address")
     private String customerAddress;
-    @FormParam("contact")
+	@FormParam("contact")
     private String customerContact;
 
     private Set<Order> orders = new HashSet<>();
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     public int getCustomerId() {
         return customerId;
     }
@@ -87,7 +95,7 @@ public class Customer {
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
     }
-   
+
     @Override
     public String toString() {
         return "Customer{" +
@@ -99,4 +107,5 @@ public class Customer {
                 ", orders=" + orders +
                 '}';
     }
+
 }

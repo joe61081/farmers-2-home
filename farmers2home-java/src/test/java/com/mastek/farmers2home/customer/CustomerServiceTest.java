@@ -1,8 +1,5 @@
 package com.mastek.farmers2home.customer;
 
-import com.mastek.farmers2home.customer.Customer;
-import com.mastek.farmers2home.customer.CustomerJPADAO;
-import com.mastek.farmers2home.customer.CustomerService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +22,7 @@ public class CustomerServiceTest {
     CustomerJPADAO customerJPADAO;
 
     @Test
-    public void testAddNewCustomer(){
+	public void testAddNewCustomer() {
         Customer c = new Customer();
         c.setCustomerName("Mary Hubbert");
         c.setCustomerAddress("123 George Street");
@@ -33,7 +30,7 @@ public class CustomerServiceTest {
         c.setEmailAddress("maryhubbert@gmail.com");
        
         c = customerService.addCustomer(c);
-
+		c = customerJPADAO.save(c);
         Assert.assertNotNull(customerJPADAO.findById(c.getCustomerId()));
 
         Customer persistedCustomer = customerJPADAO.findById(c.getCustomerId()).get();

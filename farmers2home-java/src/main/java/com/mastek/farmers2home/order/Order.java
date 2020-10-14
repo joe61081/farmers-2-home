@@ -1,6 +1,5 @@
 package com.mastek.farmers2home.order;
 
-import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,19 +23,19 @@ import com.mastek.farmers2home.customer.Customer;
 import com.mastek.farmers2home.payment.Payment;
 
 @Entity
-@Table(name="customer_orders")
+@Table(name = "customer_orders")
 public class Order {
 	
 
 	int orderId;
 	
-	@FormParam("order price")
+	@FormParam("orderPrice")
 	double orderPrice;
 	
-	@FormParam("order status")
+	@FormParam("orderStatus")
 	orderStatus orderStatus;
 	
-	@FormParam("order date")
+	@FormParam("orderDate")
 	String orderDate;
 	
 	boolean isSubscription;

@@ -41,6 +41,7 @@ public class Product {
 	int stockQuantity;
 
 	Set <OrderItem> orderItemAssigned = new HashSet<>();
+
 	Set <Farmer> farmerAssigned = new HashSet<>();
 
 	@ManyToMany(mappedBy="productAssigned")
@@ -51,6 +52,7 @@ public class Product {
 	public void setFarmerAssigned(Set<Farmer> farmerAssigned) {
 		this.farmerAssigned = farmerAssigned;
 	}
+
 	@OneToMany(mappedBy = "assignedProduct", cascade = CascadeType.ALL)
 	@XmlTransient
 	public Set<OrderItem> getOrderItemAssigned() {

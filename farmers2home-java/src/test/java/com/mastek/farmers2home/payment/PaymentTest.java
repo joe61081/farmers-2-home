@@ -1,3 +1,4 @@
+
 package com.mastek.farmers2home.payment;
 
 import static org.junit.Assert.assertNotNull;
@@ -65,7 +66,7 @@ public class PaymentTest {
 		System.out.println(payment);
 		assertNotNull("Payment Not Added", payment);
 		
-	}
+	
 }
 //	@Test
 //	public void testListAllPayments() {
@@ -98,3 +99,13 @@ public class PaymentTest {
 	
 
 
+
+}
+
+
+				
+
+		
+	
+
+	
