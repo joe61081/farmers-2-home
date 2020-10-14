@@ -1,6 +1,11 @@
 package com.mastek.farmers2home.payment;
 
+
+import com.mastek.farmers2home.customer.Customer;
 import com.mastek.farmers2home.order.Order;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,40 +16,73 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @Table(name="payment")
 public class Payment {
 	
-	private int PaymentId;
+	private int paymentId;
 	
-	@FormParam("total paid")
-	private double TotalPaid;
+	@FormParam("First Name")
+	private String firstName;
 	
-	@FormParam("payment type")
-	private PaymentType PaymentType;
+	@FormParam("Last Name")
+	private String lastName;
 	
-	@FormParam("payment date")
-	private String PaymentDate;
+	@FormParam("Email")
+	private String email;
 	
-	@FormParam("card number")
-	private long CardNumber;
+	@FormParam("Address")
+	private String address;
 	
-	@FormParam("sort code")
-	private int SortCode;
+	@FormParam("City")
+	private String city;
 	
-	@FormParam("Account number")
-	private long AccountNumber;
+	@FormParam("County")
+	private String county;
 	
+	@FormParam("PostCode")
+	private String postCode;
 	
-	//relationships
+	@FormParam("Payment Type")
+	private PaymentType paymentType;
+	
+	@FormParam("Name on Card")
+	private String nameOnCard;
+	
+	@FormParam("Card Number")
+	private long cardNumber;
+	
+	@FormParam("Expiry Month")
+	private String expiryMonth;
+	
+	@FormParam("Expiry Year")
+	private String expiryYear;
+	
+	@FormParam("Card Verification Value")
+	private long cvv;
+	
+	@FormParam("Total Paid")
+	private double totalPaid;
+	
+	@FormParam("Payment Date")
+	private String paymentDate;
+	
+	@FormParam("Shipping Method")
+	private Shippingmethod shippingMethod;
+	
+	//RELATIONSHIPS 
+	
 	private Order orderAssigned;
 	
 	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name = "fk_order_id")
+	@JoinColumn(name="fk_order_id")
+	@XmlTransient
 	public Order getOrderAssigned() {
 		return orderAssigned;
 	}
@@ -52,66 +90,156 @@ public class Payment {
 	public void setOrderAssigned(Order orderAssigned) {
 		this.orderAssigned = orderAssigned;
 	}
-
-	public void setCurrentorder(Order currentorder) {
-		this.orderAssigned = currentorder;
-	}
 	
-	//Getters and Setters 
+
+	//GETTERS & SETTERS
+	
 	@Id
 	@Column(name="payment_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	public int getPaymentId() {
-		return PaymentId;
+		return paymentId;
 	}
+	
 	public void setPaymentId(int paymentId) {
-		PaymentId = paymentId;
+		this.paymentId = paymentId;
 	}
-	public double getTotalPaid() {
-		return TotalPaid;
+	
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setTotalPaid(double totalPaid) {
-		TotalPaid = totalPaid;
+	
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getAddress() {
+		return address;
+	}
+	
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	public String getCity() {
+		return city;
+	}
+	
+	public void setCity(String city) {
+		this.city = city;
+	}
+	
+	public String getCounty() {
+		return county;
+	}
+	
+	public void setCounty(String county) {
+		this.county = county;
+	}
+	
+	public String getPostCode() {
+		return postCode;
+	}
+	
+	public void setPostCode(String postCode) {
+		this.postCode = postCode;
 	}
 	@Enumerated(EnumType.STRING)
+	
 	public PaymentType getPaymentType() {
-		return PaymentType;
+		return paymentType;
 	}
+	
 	public void setPaymentType(PaymentType paymentType) {
-		PaymentType = paymentType;
+		this.paymentType = paymentType;
 	}
-	public String getPaymentDate() {
-		return PaymentDate;
+	
+	public String getNameOnCard() {
+		return nameOnCard;
 	}
-	public void setPaymentDate(String paymentDate) {
-		PaymentDate = paymentDate;
+	
+	public void setNameOnCard(String nameOnCard) {
+		this.nameOnCard = nameOnCard;
 	}
+	
 	public long getCardNumber() {
-		return CardNumber;
+		return cardNumber;
 	}
+	
 	public void setCardNumber(long cardNumber) {
-		CardNumber = cardNumber;
+		this.cardNumber = cardNumber;
 	}
-	public int getSortCode() {
-		return SortCode;
+	
+	public String getExpiryMonth() {
+		return expiryMonth;
 	}
-	public void setSortCode(int sortCode) {
-		SortCode = sortCode;
+	
+	public void setExpiryMonth(String expiryMonth) {
+		this.expiryMonth = expiryMonth;
 	}
-	public long getAccountNumber() {
-		return AccountNumber;
+	
+	public String getExpiryYear() {
+		return expiryYear;
 	}
-	public void setAccountNumber(long accountNumber) {
-		AccountNumber = accountNumber;
+	
+	public void setExpiryYear(String expiryYear) {
+		this.expiryYear = expiryYear;
 	}
-	//hashcode and equals
+	public long getCvv() {
+		return cvv;
+	}
+	
+	public void setCvv(long cvv) {
+		this.cvv = cvv;
+	}
+	
+	public double getTotalPaid() {
+		return totalPaid;
+	}
+	
+	public void setTotalPaid(double totalPaid) {
+		this.totalPaid = totalPaid;
+	}
+	
+	public String getPaymentDate() {
+		return paymentDate;
+	}
+	
+	public void setPaymentDate(String paymentDate) {
+		this.paymentDate = paymentDate;
+	}
+	
+	public Shippingmethod getShippingMethod() {
+		return shippingMethod;
+	}
+	@Enumerated(EnumType.STRING)
+	public void setShippingMethod(Shippingmethod shippingMethod) {
+		this.shippingMethod = shippingMethod;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + PaymentId;
+		result = prime * result + paymentId;
 		return result;
-	}
+}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -122,16 +250,18 @@ public class Payment {
 		if (getClass() != obj.getClass())
 			return false;
 		Payment other = (Payment) obj;
-		if (PaymentId != other.PaymentId)
+		if (paymentId != other.paymentId)
 			return false;
 		return true;
-	}
-	//tostring
+}
+
 	@Override
 	public String toString() {
-		return "Payment [PaymentId=" + PaymentId + ", TotalPaid=" + TotalPaid + ", PaymentType=" + PaymentType
-				+ ", PaymentDate=" + PaymentDate + ", CardNumber=" + CardNumber + ", SortCode=" + SortCode
-				+ ", AccountNumber=" + AccountNumber + "]";
-	}
-	
+		return "Payment [paymentId=" + paymentId + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
+				+ email + ", address=" + address + ", city=" + city + ", county=" + county + ", postCode=" + postCode
+				+ ", paymentType=" + paymentType + ", nameOnCard=" + nameOnCard + ", cardNumber=" + cardNumber
+				+ ", expiryMonth=" + expiryMonth + ", expiryYear=" + expiryYear + ", cvv=" + cvv + ", totalPaid="
+				+ totalPaid + ", paymentDate=" + paymentDate + ", shippingMethod=" + shippingMethod + "]";
 }
+}
+	

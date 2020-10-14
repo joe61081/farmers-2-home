@@ -1,6 +1,7 @@
 package com.mastek.farmers2home.customer;
 
 import com.mastek.farmers2home.order.Order;
+import com.mastek.farmers2home.payment.Payment;
 
 import javax.persistence.*;
 import javax.ws.rs.FormParam;
@@ -12,7 +13,7 @@ import java.util.Set;
 @Table(name="customer")
 public class Customer {
 
-    private int customerId;
+	private int customerId;
 
     @FormParam("email")
     private String emailAddress;
@@ -28,7 +29,7 @@ public class Customer {
     private Set<Order> orders = new HashSet<>();
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.AUTO)
     public int getCustomerId() {
         return customerId;
     }
@@ -86,7 +87,7 @@ public class Customer {
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
     }
-
+   
     @Override
     public String toString() {
         return "Customer{" +

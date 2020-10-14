@@ -1,6 +1,8 @@
 package com.mastek.farmers2home.payment;
 
 
+import java.util.Set;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.transaction.Transactional;
@@ -9,8 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.mastek.farmers2home.customer.Customer;
+import com.mastek.farmers2home.customer.CustomerJPADAO;
 import com.mastek.farmers2home.order.Order;
 import com.mastek.farmers2home.order.OrderJPADAO;
+
 
 
 @Component
@@ -22,6 +27,9 @@ public class PaymentService {
 	
 	@Autowired
 	OrderJPADAO orderDAO;
+	
+	@Autowired
+	CustomerJPADAO custDAO;
 	
 	public PaymentService() {
 		System.out.println("Payment Service Created");
@@ -39,7 +47,7 @@ public class PaymentService {
 
 }
 	@Transactional
-	public Payment assignOrderToPayment(int Orderid, int Paymentid) {
+	 public Payment assignOrderToPayment(int Orderid, int Paymentid) {
 		Order order = orderDAO.findById(Orderid).get();
 		Payment payment = paymentDAO.findById(Paymentid).get();
 		
@@ -51,7 +59,12 @@ public class PaymentService {
 		return payment;
 
 	}
+	
+	
+
 	}
+	
+
 
 
 

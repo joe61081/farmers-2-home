@@ -1,6 +1,9 @@
 package com.mastek.farmers2home.customer;
 
 import com.mastek.farmers2home.order.Order;
+import com.mastek.farmers2home.payment.Payment;
+import com.mastek.farmers2home.payment.PaymentJPADAO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +18,9 @@ public class CustomerService implements CustomerAPI {
 
     @Autowired
     CustomerJPADAO customerDao;
+    
+    @Autowired
+    PaymentJPADAO paymentDAO;
 
     public Customer addCustomer(Customer newCustomer) {
         customerDao.save(newCustomer);
@@ -29,5 +35,9 @@ public class CustomerService implements CustomerAPI {
         Customer customer = customerDao.findById(custId).get();
         return customer.getOrders();
     }
+  
+    }
+    	
+  
+   
 
-}
