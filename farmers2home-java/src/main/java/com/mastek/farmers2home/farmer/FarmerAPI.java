@@ -39,13 +39,13 @@ public interface FarmerAPI {
 
 	// GET http://localhost:8080/farmers2home/farmers/products/{farmerId}
 	@GET
-	@Path("farmers/products/{farmerId}")
+	@Path("farmer_to_product_assignment/{farmerId}")
 	@Produces({MediaType.APPLICATION_JSON})
-	public Set<Product> getFarmerProducts(@PathParam("farmerId") int farmerId);
+	public Set<Product> getFarmerProducts(@PathParam("farmerId") int farmerid);
 
 	// POST http://localhost:8080/farmers2home/farmers/products/register
 	@POST
-	@Path("farmers/products/register")
+	@Path("farmer_to_product_assignment/register")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Product registerProductForFarmer(@FormParam("farmerId") int farmerId, @BeanParam Product newProduct);
@@ -60,4 +60,6 @@ public interface FarmerAPI {
 	@Path("/farmers/emailcheck")
 	@Produces(MediaType.APPLICATION_JSON)
 	public boolean isEmailInUse(@FormParam("email")String email);
+
+
 }

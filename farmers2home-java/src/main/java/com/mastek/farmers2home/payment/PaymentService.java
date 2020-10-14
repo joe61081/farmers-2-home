@@ -15,7 +15,7 @@ import com.mastek.farmers2home.order.OrderJPADAO;
 
 @Component
 @Scope("singleton")
-public class PaymentService {
+public class PaymentService implements PaymentAPI {
 	
 	@Autowired
 	PaymentJPADAO paymentDAO;
@@ -23,6 +23,12 @@ public class PaymentService {
 	@Autowired
 	OrderJPADAO orderDAO;
 	
+	@Override
+	public Payment registerNewPayment(Payment newPayment) {
+		newPayment = paymentDAO.save(newPayment);
+		return newPayment;
+	}
+
 	public PaymentService() {
 		System.out.println("Payment Service Created");
 		
@@ -51,6 +57,27 @@ public class PaymentService {
 		return payment;
 
 	}
+
+	@Override
+	public Iterable<Payment> listAllPayments() {
+		System.out.println("Listing all Payment");
+		return paymentDAO.findAll();
+
+	}
+
+	@Override
+	public Payment findByPaymentId(int paymentId) {
+		// TODO Auto-generated method stub
+		return paymentDAO.findById(paymentId).get();
+	}
+
+	@Override
+	public Payment registerPaymentForOrder(int paymentId, Order neworder) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	}
 
 

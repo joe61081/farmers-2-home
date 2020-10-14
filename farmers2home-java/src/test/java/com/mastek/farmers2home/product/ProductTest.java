@@ -13,7 +13,7 @@ import com.mastek.farmers2home.product.ProductJPADAO;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
+//@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 public class ProductTest {
 	
 	@Autowired

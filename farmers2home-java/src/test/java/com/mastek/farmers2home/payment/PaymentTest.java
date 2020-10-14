@@ -48,25 +48,25 @@ public class PaymentTest {
 		payment = paymentdao.save(payment);
 		assertNotNull("Payment Not Added", payment);
 	}
-	@Test
-	public void testListAllPayments() {
-		System.out.println("Print all payments");
-		for (Payment payment : paymentdao.findAll()) {
-			System.out.println(payment);
-		}
-	}
-
-	@Test
-	public void testAssignPaymentToOrder() {
-	Payment payment = paymentservice.assignOrderToPayment(1, 2);
-	assertNotNull("Payment Not Assigned", payment.getOrderAssigned());
-	}
-
-	@Test
-	public void testDeletePayment() {
-		paymentdao.deleteById(1);
-
-	}
+//	@Test
+//	public void testListAllPayments() {
+//		System.out.println("Print all payments");
+//		for (Payment payment : paymentdao.findAll()) {
+//			System.out.println(payment);
+//		}
+//	}
+//
+//	@Test
+//	public void testAssignPaymentToOrder() {
+//	Payment payment = paymentservice.assignOrderToPayment(1, 2);
+//	assertNotNull("Payment Not Assigned", payment.getOrderAssigned());
+//	}
+//
+//	@Test
+//	public void testDeletePayment() {
+//		paymentdao.deleteById(1);
+//
+//	}
 
 
 }

@@ -16,3 +16,18 @@ h2{
  .orderRow:hover{
      background-color: #bddbf0;
  }
+ .farmer-products{
+     text-align: center;
+     border-right: 1cm;
+     border-color: white;
+     margin-left: 6cm;
+     margin-top: 1cm;
+     align-self: center;
+ }
+ .farmer-product-heading{
+     font-size: large;
+     padding-left: 0.5cm;
+ }
+ .placeholder-image{
+     align-items: center;
+ }
