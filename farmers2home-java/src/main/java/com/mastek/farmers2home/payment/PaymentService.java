@@ -1,17 +1,13 @@
 package com.mastek.farmers2home.payment;
 
 
-import java.util.Set;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.mastek.farmers2home.customer.Customer;
 import com.mastek.farmers2home.customer.CustomerJPADAO;
 import com.mastek.farmers2home.order.Order;
 import com.mastek.farmers2home.order.OrderJPADAO;
@@ -19,7 +15,6 @@ import com.mastek.farmers2home.order.OrderJPADAO;
 
 
 @Component
-@Scope("singleton")
 public class PaymentService implements PaymentAPI {
 	
 	@Autowired

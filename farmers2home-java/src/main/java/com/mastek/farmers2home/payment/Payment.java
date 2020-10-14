@@ -2,22 +2,15 @@
 package com.mastek.farmers2home.payment;
 
 
-import com.mastek.farmers2home.customer.Customer;
 import com.mastek.farmers2home.order.Order;
-
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.ws.rs.FormParam;
@@ -51,13 +44,13 @@ public class Payment {
 	private String postCode;
 	
 	@FormParam("paymentType")
-	private PaymentType paymentType;
+	private String paymentType;
 	
 	@FormParam("nameOnCard")
 	private String nameOnCard;
 	
 	@FormParam("cardNumber")
-	private long cardNumber;
+	private String cardNumber;
 	
 	@FormParam("expiryMonth")
 	private String expiryMonth;
@@ -66,7 +59,7 @@ public class Payment {
 	private String expiryYear;
 	
 	@FormParam("cvv")
-	private long cvv;
+	private String cvv;
 	
 	@FormParam("totalPaid")
 	private double totalPaid;
@@ -75,7 +68,7 @@ public class Payment {
 	private String paymentDate;
 	
 	@FormParam("shippingMethod")
-	private Shippingmethod shippingMethod;
+	private String shippingMethod;
 	
 	//RELATIONSHIPS 
 	
@@ -161,15 +154,7 @@ public class Payment {
 	public void setPostCode(String postCode) {
 		this.postCode = postCode;
 	}
-	@Enumerated(EnumType.STRING)
-	
-	public PaymentType getPaymentType() {
-		return paymentType;
-	}
-	
-	public void setPaymentType(PaymentType paymentType) {
-		this.paymentType = paymentType;
-	}
+
 	
 	public String getNameOnCard() {
 		return nameOnCard;
@@ -179,13 +164,6 @@ public class Payment {
 		this.nameOnCard = nameOnCard;
 	}
 	
-	public long getCardNumber() {
-		return cardNumber;
-	}
-	
-	public void setCardNumber(long cardNumber) {
-		this.cardNumber = cardNumber;
-	}
 	
 	public String getExpiryMonth() {
 		return expiryMonth;
@@ -201,13 +179,6 @@ public class Payment {
 	
 	public void setExpiryYear(String expiryYear) {
 		this.expiryYear = expiryYear;
-	}
-	public long getCvv() {
-		return cvv;
-	}
-	
-	public void setCvv(long cvv) {
-		this.cvv = cvv;
 	}
 	
 	public double getTotalPaid() {
@@ -225,12 +196,36 @@ public class Payment {
 	public void setPaymentDate(String paymentDate) {
 		this.paymentDate = paymentDate;
 	}
-	
-	public Shippingmethod getShippingMethod() {
+
+	public String getPaymentType() {
+		return paymentType;
+	}
+
+	public void setPaymentType(String paymentType) {
+		this.paymentType = paymentType;
+	}
+
+	public String getCardNumber() {
+		return cardNumber;
+	}
+
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
+	}
+
+	public String getCvv() {
+		return cvv;
+	}
+
+	public void setCvv(String cvv) {
+		this.cvv = cvv;
+	}
+
+	public String getShippingMethod() {
 		return shippingMethod;
 	}
-	@Enumerated(EnumType.STRING)
-	public void setShippingMethod(Shippingmethod shippingMethod) {
+
+	public void setShippingMethod(String shippingMethod) {
 		this.shippingMethod = shippingMethod;
 	}
 
