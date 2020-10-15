@@ -95,6 +95,7 @@
   i{
     padding:0.2em;
 }
+
   
   /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
   @media (max-width: 800px) {
@@ -172,6 +173,31 @@
           </div>
           </div>
       </form>
+      <div class="container">
+        <h4>Shipping Method</h4>
+        <label for="UK Free Delivery">UK Free Delivery 
+         <input type="radio" id="UK Free Delivery" name="Shipping Method" value="UK Free Delivery">
+          <span class="price">£2.50</span>
+      </label>
+
+      <label for="Second Class Recorded">Second Class Recorded
+        <input type="radio" id="UK Free Delivery" name="Shipping Method" value="UK Free Delivery">
+         <span class="price">£1.50</span>
+     </label>
+
+     <label for="First Class Recorded">First Class Recorded 
+      <input type="radio" id="UK Free Delivery" name="Shipping Method" value="UK Free Delivery">
+       <span class="price">£3.50</span>
+   </label>
+       
+   <label for="Next Day Delivery">Next Day Delivery 
+    <input type="radio" id="UK Free Delivery" name="Shipping Method" value="UK Free Delivery">
+     <span class="price">£8.50</span>
+ </label>
+        
+      
+  
+      </div>
       <div class="col-25">
           <div class="container">
             <h4>Cart</h4>
@@ -185,9 +211,11 @@
             <hr>
             <p>Total <span class="price" style="color:black"><b>£00.00</b></span></p>
           </div>
+          <div class="container">
           <label>
               <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
           </label>
+         
           <input type="submit" value="Continue to checkout" class="btn" routerLink="/continue-to-checkout">
         </div>
       </div>
