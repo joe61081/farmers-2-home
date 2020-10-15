@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Payment } from 'src/app/payment';
+import { PaymentService } from '../payment.service';
 
 @Component({
   selector: 'app-payment-checkout',
@@ -7,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentCheckoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private paymentService:PaymentService, private router:Router) { }
+
+  addNewPayment(newPayment:Payment){
+    this.paymentService.addNewPayment(newPayment);
+  }
 
   ngOnInit(): void {
   }
