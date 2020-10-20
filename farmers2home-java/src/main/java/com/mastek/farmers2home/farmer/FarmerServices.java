@@ -85,10 +85,18 @@ public class FarmerServices implements FarmerAPI {
 		return farmerDAO.findFarmerLogin(email, password);
 	}
 
-//	@Override
-//	public Product registerProductForFarmer(int farmerId, int productId) {
-
+	@Override
+	public boolean isEmailInUse(String email) {
+		Farmer user = farmerDAO.emailCheck(email);
+		if(user == null) {
+			return false;
+		}
+		return true; 
 	}
 
+	
+}
+
+	
 
 

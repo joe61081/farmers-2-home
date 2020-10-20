@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule } from '@angular/core'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerComponent } from './customer/customer.component';
@@ -13,8 +12,10 @@ import { FarmerComponent } from './farmer/farmer.component';
 import { FarmerProfileComponent } from './farmer/farmer-profile/farmer-profile.component';
 import { FarmerRegisterComponent } from './farmer/farmer-register/farmer-register.component';
 import { FarmerLoginComponent } from './farmer/farmer-login/farmer-login.component';
-import { ProductRegisterComponent } from './product/product-register/product-register.component';
-import { ProductComponent } from './product/product.component';
+import { PaymentComponent } from './payment/payment.component';
+import { PaymentCheckoutComponent} from './payment/payment-checkout/payment-checkout.component'
+import { from } from 'rxjs';
+
 
 @NgModule({
   declarations: [
@@ -23,18 +24,23 @@ import { ProductComponent } from './product/product.component';
     CustomerProfileComponent,
     CustomerRegisterComponent,
     CustomerLoginComponent,
+  
     FarmerComponent,
     FarmerLoginComponent,
     FarmerProfileComponent,
     FarmerRegisterComponent,
-    ProductComponent,
-    ProductRegisterComponent
+
+    PaymentComponent,
+    PaymentCheckoutComponent,
+    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,6 +11,7 @@ import com.mastek.farmers2home.order.OrderService;
 import com.mastek.farmers2home.payment.PaymentService;
 import com.mastek.farmers2home.product.ProductServices;
 
+
 @Component //declare it as spring component
 @ApplicationPath("/farmers2home/")
 public class APIConfig extends ResourceConfig {
@@ -20,12 +21,13 @@ public class APIConfig extends ResourceConfig {
 		//enable the CORS filter for UI applications to access the service
 		register(CORSFilter.class);
 		// register each service class to enable services as API
-		register(CustomerService.class);
-		register(FarmerServices.class);
+//		register(CustomerService.class);
+//		register(FarmerServices.class);
 		register(PaymentService.class);
-		register(OrderService.class);
-		// register(OrderItemService.class);
-		register(ProductServices.class);
+//		register(OrderService.class);
+//		register(OrderService.class);
+//		register(ProductServices.class);
 	}
 
 }
+

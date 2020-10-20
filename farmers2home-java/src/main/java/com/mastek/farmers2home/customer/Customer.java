@@ -1,3 +1,5 @@
+
+
 package com.mastek.farmers2home.customer;
 
 import java.util.HashSet;
@@ -15,6 +17,7 @@ import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlTransient;
 
 import com.mastek.farmers2home.order.Order;
+
 
 @Entity
 @Table(name="customer")
@@ -106,4 +109,6 @@ public class Customer {
                 ", orders=" + orders +
                 '}';
     }
+
+
 }

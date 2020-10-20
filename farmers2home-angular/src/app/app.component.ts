@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
+import { from } from 'rxjs';
 import { CustomerService } from './customer.service';
 import { FarmerService } from './farmer/farmer.service';
+import { PaymentService} from './payment/payment.service';
+
+
 
 @Component({
   selector: 'app-root',
@@ -11,10 +15,12 @@ export class AppComponent {
 
   themeMode: boolean;
 
-  constructor(public custService:CustomerService, public farmerService:FarmerService) {
-    this.farmerService.isLoggedIn = farmerService.checkIsLoggedIn(); 
+  constructor(public custService:CustomerService, public farmerService:FarmerService, public paymentService: PaymentService) {
+    this.farmerService.isLoggedIn=farmerService.checkIsLoggedIn(); 
     this.custService.isLoggedIn = custService.checkIsLoggedIn();
-    
+   
+  
+   
 
     if(localStorage.getItem('themeMode')){
       this.themeMode = JSON.parse(localStorage.getItem('themeMode'));

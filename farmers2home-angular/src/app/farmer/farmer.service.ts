@@ -12,6 +12,7 @@ export class FarmerService {
   rootProductURL:string
   isLoggedIn:boolean;
   currentFarmer:Farmer
+  isEmailInUse:boolean
 
   constructor(public httpsvc:HttpClient) {
     this.currentFarmer = JSON.parse(localStorage.getItem("currentFarmer"));
@@ -39,6 +40,19 @@ export class FarmerService {
     );   
    }
 
+   checkEmail(email: string){
+    const httpOpts = {
+      headers: new HttpHeaders({"Content-Type":"application/x-www-form-urlencoded"})
+    }
+    const params = new URLSearchParams();
+    params.set('email', email)
+
+    return this.httpsvc.post<boolean>(this.rootURL+"/farmers/emailcheck", params.toString(), httpOpts).subscribe(
+      Response => {
+        this.isEmailInUse = Response; 
+        }
+    )
+   }
    getProducts():Observable<Product[]>{
     return this.httpsvc.get<Product[]>(this.rootURL+"/products")
   }

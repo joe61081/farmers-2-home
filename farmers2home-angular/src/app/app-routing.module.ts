@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CustomerLoginComponent } from './customer/customer-login/customer-login.component';
 import { CustomerProfileComponent } from './customer/customer-profile/customer-profile.component';
@@ -8,52 +8,55 @@ import { FarmerComponent } from './farmer/farmer.component';
 import { FarmerProfileComponent } from './farmer/farmer-profile/farmer-profile.component';
 import { FarmerRegisterComponent } from './farmer/farmer-register/farmer-register.component';
 import { FarmerLoginComponent } from './farmer/farmer-login/farmer-login.component';
-import { ProductComponent } from './product/product.component';
-import { ProductRegisterComponent } from './product/product-register/product-register.component';
+import { PaymentComponent} from './payment/payment.component';
+import { PaymentCheckoutComponent} from './payment/payment-checkout/payment-checkout.component';
+import { ContinueToCheckoutComponent} from './payment/continue-to-checkout/continue-to-checkout.component';
+import { from } from 'rxjs';
+
 
 const routes: Routes = [
   { path: 'customer', component: CustomerComponent,
   children: [
     {
       path: 'profile',
-      component: CustomerProfileComponent, 
+      component: CustomerProfileComponent,
     },
     {
       path: 'register',
-      component: CustomerRegisterComponent, 
+      component: CustomerRegisterComponent,
     },
     {
       path: 'login',
-      component: CustomerLoginComponent, 
+      component: CustomerLoginComponent,
     }]
    },
    { path: 'farmers', component: FarmerComponent,
    children: [
      {
        path: 'profile',
-       component: FarmerProfileComponent, 
+       component: FarmerProfileComponent,
      },
      {
        path: 'register',
-       component: FarmerRegisterComponent, 
+       component: FarmerRegisterComponent,
      },
      {
        path: 'login',
-       component: FarmerLoginComponent, 
+       component: FarmerLoginComponent,
      }]
     },
-    { path: 'product', component: ProductComponent,
-   children: [
-     {
-       path: 'register',
-       component: ProductRegisterComponent, 
-     }]
-    }
-];
+  {
+      path: 'payment-checkout',
+      component: PaymentCheckoutComponent,
+    },
+    {
+    path: 'continue-to-checkout',
+    component: ContinueToCheckoutComponent,
+    }]
+  
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-
 export class AppRoutingModule { }

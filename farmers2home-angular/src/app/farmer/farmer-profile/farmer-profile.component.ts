@@ -26,7 +26,6 @@ export class FarmerProfileComponent implements OnInit {
     this.farmerProducts=[]
   }
 
-  
   addProductToFarmer(farmerId:number, productId:number){
     this.productService.addProductToFarmer(farmerId, productId, ).subscribe(
       res=>{
