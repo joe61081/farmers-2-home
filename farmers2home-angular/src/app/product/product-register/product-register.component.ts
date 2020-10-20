@@ -34,6 +34,7 @@ export class ProductRegisterComponent implements OnInit {
   }
 
   onSubmit(){
+
     
   }
 
