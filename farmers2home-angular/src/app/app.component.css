@@ -20,3 +20,14 @@
     align-self: center;
     padding-left: 0.5cm;
 }
+.add-to-basket{
+    background-color: white;
+    padding-left: 0.5cm;
+    align-self: center;
+    color: green;
+    border-color: white;
+    border-style: groove;
+}
+.prices{
+    color: #000000;
+}
