@@ -15,6 +15,8 @@ import { FarmerLoginComponent } from './farmer/farmer-login/farmer-login.compone
 import { PaymentComponent } from './payment/payment.component';
 import { PaymentCheckoutComponent} from './payment/payment-checkout/payment-checkout.component'
 import { from } from 'rxjs';
+import { AboutComponent } from './about/about.component';
+import { BlogComponent } from './blog/blog.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { from } from 'rxjs';
 
     PaymentComponent,
     PaymentCheckoutComponent,
+    AboutComponent,
+    BlogComponent,
     
 
   ],
