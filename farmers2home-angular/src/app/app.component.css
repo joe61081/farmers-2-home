@@ -14,5 +14,9 @@
     -ms-flex-pack: justify;
     -webkit-justify-content: space-between;
     justify-content: space-between;
-    padding: 5px 0;
+    padding: 6px 0;
+}
+.product{
+    align-self: center;
+    padding-left: 0.5cm;
 }
