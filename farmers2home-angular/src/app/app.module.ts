@@ -17,6 +17,7 @@ import { PaymentCheckoutComponent} from './payment/payment-checkout/payment-chec
 import { from } from 'rxjs';
 import { AboutComponent } from './about/about.component';
 import { BlogComponent } from './blog/blog.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { BlogComponent } from './blog/blog.component';
     CustomerProfileComponent,
     CustomerRegisterComponent,
     CustomerLoginComponent,
+    ContactUsComponent,
   
     FarmerComponent,
     FarmerLoginComponent,
@@ -36,6 +38,7 @@ import { BlogComponent } from './blog/blog.component';
     PaymentCheckoutComponent,
     AboutComponent,
     BlogComponent,
+    ContactUsComponent,
     
 
   ],

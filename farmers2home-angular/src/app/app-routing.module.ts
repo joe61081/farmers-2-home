@@ -12,6 +12,7 @@ import { PaymentComponent} from './payment/payment.component';
 import { PaymentCheckoutComponent} from './payment/payment-checkout/payment-checkout.component';
 import { ContinueToCheckoutComponent} from './payment/continue-to-checkout/continue-to-checkout.component';
 import { from } from 'rxjs';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 const routes: Routes = [
@@ -53,10 +54,13 @@ const routes: Routes = [
     path: 'continue-to-checkout',
     component: ContinueToCheckoutComponent,
     }]
-  
+  {path: 'contact-us'
+    Component: ContactUsComponent}
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

@@ -37,7 +37,7 @@
   <nav class="navbar navbar-expand-lg navbar-light  ftco-navbar-light" id="ftco-navbar">
     <div class="container">
     
-   <a class="navbar-brand" href="#">Farmers2Home</a> 
+   <a class="navbar-brand" href="/app/app.component.html">Farmers2Home</a> 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <!-- <span class="navbar-toggler-icon"></span> -->
     <span class="oi oi-menu"></span> Menu
@@ -45,14 +45,14 @@
 
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/app/app.component.html">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" routerLink="/product" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Shop
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">All Products</a>
+            <a class="dropdown-item" href="product/product.component.html">All Products</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Vegetables</a>
             <a class="dropdown-item" href="#">Fruits</a>
@@ -64,7 +64,10 @@
           <a class="nav-link" href="/app/about/about.component.html">About <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Blog <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/app/blog/blog.component.html">Blog <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/app/contact-us/contact-us.component.html">Contact Us <span class="sr-only">(current)</span></a>
         </li>
 
         <li class="nav-item dropdown">
