@@ -37,7 +37,7 @@
   <nav class="navbar navbar-expand-lg navbar-light  ftco-navbar-light" id="ftco-navbar">
     <div class="container">
     
-   <a class="navbar-brand" href="/app/app.component.html">Farmers2Home</a> 
+   <a class="navbar-brand" href="/">Farmers2Home</a> 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <!-- <span class="navbar-toggler-icon"></span> -->
     <span class="oi oi-menu"></span> Menu
@@ -45,29 +45,29 @@
 
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="/app/app.component.html">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" routerLink="/product" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="product/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Shop
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="product/product.component.html">All Products</a>
+            <a class="dropdown-item" routerLink="product/">All Products</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Vegetables</a>
-            <a class="dropdown-item" href="#">Fruits</a>
-            <a class="dropdown-item" href="#">Juices</a>
-            <a class="dropdown-item" href="#">Meat</a>
+            <a class="dropdown-item" href="product/">Vegetables</a>
+            <a class="dropdown-item" href="/product/">Fruits</a>
+            <a class="dropdown-item" href="/product/">Juices</a>
+            <a class="dropdown-item" href="/app/product/product.component.html">Meat</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/app/about/about.component.html">About <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/about/">About <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/app/blog/blog.component.html">Blog <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/blog/">Blog <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/app/contact-us/contact-us.component.html">Contact Us <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/contact-us/">Contact Us <span class="sr-only">(contact-us)</span></a>
         </li>
 
         <li class="nav-item dropdown">
@@ -82,8 +82,8 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/customer/profile">Profile</a>
               <div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink="/customer/login">Log In</a>
-            <a class="dropdown-item" routerLink="/farmers/login">Register</a>
+            <a class="dropdown-item" href="/customer/login">Log In</a>
+            <a class="dropdown-item" href="/farmers/login">Register</a>
             <a class="dropdown-item" href="/customer/login" *ngIf="custService.isLoggedIn" (click)="custService.customerLogout()">Logout</a>
           </div>  
         </li>
@@ -94,8 +94,8 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/farmers/profile">My Products</a>
               <div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink="/farmers/login">Log In</a>
-            <a class="dropdown-item" routerLink="/farmers/register">Register</a>
+            <a class="dropdown-item" href="/farmers/login">Log In</a>
+            <a class="dropdown-item" href="/farmers/register">Register</a>
             <a class="dropdown-item" href="/farmers/login" *ngIf="farmerService.isLoggedIn" (click)="farmerService.farmerLogout()">Logout</a>
           </div>  
         </li>
@@ -104,7 +104,7 @@
             <i class="fa fa-shopping-cart"></i>  Basket 
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="/payment-checkout">Checkout</a>
+            <a class="dropdown-item" href="/payment-checkout">Checkout</a>
           </div>
         </li>
       </ul>
@@ -434,7 +434,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> 
 
 
 

@@ -23,13 +23,24 @@ export class ContactService {
      const httpOpts ={
        headers: new HttpHeaders(
         {'Content-Type':
-        'application/x-www-form-urlencoded;charset=UTF-8'})
+        'application/x-www-form-urlencoded;charset=UTF-8'}),
+        
+      
+      
    }
    const params = new URLSearchParams();
    params.set('name', newContact.name)
    params.set('email', newContact.email)
    params.set('message', newContact.message)
 
+   return 
+//    return this.httpsvc.post<Contact>(this.rootURL+"/contact", params.toString(), httpOpts).subscribe(
+//      (res) => console.log(res),
+//      (err) => console.log(err)
+//    );
+
+//   }
+// }
   }}
    
 

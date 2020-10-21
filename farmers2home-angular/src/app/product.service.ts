@@ -7,12 +7,15 @@ import { Product } from './product';
   providedIn: 'root'
 })
 export class ProductService {
+  addProductToOrder(newProduct: Product) {
+    throw new Error('Method not implemented.');
+  }
 
   rootURL: string;
 
 // declare the client object in constructor to use in this service.
-  constructor(private httpSvc:HttpClient) { 
-    this.rootURL = "http://localhost:8080/farmers2home"
+  constructor(private httpsvc:HttpClient) { 
+    this.rootURL="http://localhost:8080/farmers2home"
   }
 
   addProductToFarmer(farmerId:number, productId:number):Observable<Product[]>{
@@ -24,7 +27,7 @@ export class ProductService {
 
       var reqBody = "farmerId="+farmerId+"&productId="+productId
 
-      return this.httpSvc.post<Product[]>(
+      return this.httpsvc.post<Product[]>(
         this.rootURL+"/farmer_to_product_assignment/", reqBody, httpOpts
       )
   }
@@ -39,7 +42,7 @@ export class ProductService {
     params.set('productDesc', newProduct.productDesc)
     params.set('productCat', newProduct.productCat)
 
-    return this.httpSvc.post<Product>(this.rootURL+"/products/register", params.toString(), httpOpts).subscribe(
+    return this.httpsvc.post<Product>(this.rootURL+"/products/register", params.toString(), httpOpts).subscribe(
       (res) => console.log(res),
       (err) => console.log(err)
     );
@@ -47,7 +50,7 @@ export class ProductService {
     }
 
   findProductsByFarmerNo(farmerId:number):Observable<Product[]>{
-    return this.httpSvc.get<Product[]>(this.rootURL+"/product/"+farmerId)
+    return this.httpsvc.get<Product[]>(this.rootURL+"/products/"+farmerId)
   }
 
   registerProductsForFarmer(farmerId:number,newProduct:Product):Observable<Product>{
@@ -63,10 +66,27 @@ export class ProductService {
         {"Content-Type":"application/x-www-form-urlencoded"})
     }
     
-    return this.httpSvc.post<Product>(
+    return this.httpsvc.post<Product>(
     this.rootURL+"/products/register", // URL
     contentData, // data for the server
     httpOptions) // header options
   }
+  getProducts():Observable<Product[]>{
+    return this.httpsvc.get<Product[]>
+    (this.rootURL+"/products/")
+  }
 
-}
+  addProductsToOrder(orderId:number, productId: number, newProduct:Product):Observable<Product[]>{
+    const httpOpts ={
+      headers: new HttpHeaders(
+        {'Content-Type':
+        'application/x-www-form-urlencoded;charset=UTF-8'})
+      }
+      var reqBody = "orderId"+orderId+"&productId"+productId
+
+      return this.httpsvc.post<Product[]>(
+        this.rootURL+"/products/orderItem/register", reqBody, httpOpts
+      )
+      
+    }
+  }

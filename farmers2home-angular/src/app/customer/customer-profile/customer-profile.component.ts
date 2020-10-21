@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/customer.service';
-import { Order } from 'src/app/order';
+import { Order } from 'src/app/Order';
 
 @Component({
   selector: 'app-customer-profile',

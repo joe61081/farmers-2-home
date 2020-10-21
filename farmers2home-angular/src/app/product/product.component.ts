@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Farmer } from '../farmer';
+import { FarmerService } from '../farmer/farmer.service';
+import { Order } from '../Order';
+import { OrderService } from '../order.service';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
+import { Router } from '@angular/router';
+import { orderProducts } from '../orderProducts';
 
 @Component({
   selector: 'app-product',
@@ -14,10 +19,13 @@ export class ProductComponent implements OnInit {
   isFarmerEditing: boolean
   isProductFormVisible: boolean
   currentProduct: Product;
+  products: Product[]
+  orders: Order[]
+  newProduct: Product[]
+  orderProducts: orderProducts[]
 
 
-
-  constructor(private productService:ProductService) {
+  constructor(private productService:ProductService, private farmerService:FarmerService, private orderService: OrderService, private router:Router) {
     this.isProductFormVisible=false
 
     this.currentProduct=
@@ -39,11 +47,21 @@ export class ProductComponent implements OnInit {
       productPrice:1,
       stockQuantity:18}
     ]
-
+    this.products=[]
   }
 
-  ngOnInit(): void {
+  addProductsToOrder(productId:number, orderId:number, newProduct:Product){
+    this.productService.addNewProduct(newProduct).subscribe(
+      res => 
+      { newProduct = res
+      this.productService.addProductToOrder(orderId, newProduct.productId).subscribe(
+        res => {
+          this.products = res
+        }
+      )}
+    )
   }
+ 
 
   fetchFarmerProductsFromServer(){
     this.productService.findProductsByFarmerNo(this.currentFarmer.farmerId).subscribe(
@@ -67,5 +85,12 @@ export class ProductComponent implements OnInit {
 
     this.isProductFormVisible=true
   }
+  ngOnInit(): void {
+ 
+this.productService.getProducts().subscribe(
+  res => {this.products=res
+    console.log(JSON.stringify(this.products))}
 
-}  
+  
+)}}
+

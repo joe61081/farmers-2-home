@@ -18,6 +18,9 @@ import { from } from 'rxjs';
 import { AboutComponent } from './about/about.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { CommonModule } from '@angular/common';
+import { ProductComponent } from './product/product.component';
+import { OrderComponent } from './order/order.component';
 
 
 @NgModule({
@@ -39,6 +42,10 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     AboutComponent,
     BlogComponent,
     ContactUsComponent,
+
+    ProductComponent,
+
+    OrderComponent
     
 
   ],
@@ -47,7 +54,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
