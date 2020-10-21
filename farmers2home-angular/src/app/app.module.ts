@@ -15,8 +15,8 @@ import { FarmerLoginComponent } from './farmer/farmer-login/farmer-login.compone
 import { PaymentComponent } from './payment/payment.component';
 import { PaymentCheckoutComponent} from './payment/payment-checkout/payment-checkout.component'
 import { from } from 'rxjs';
-import { AboutComponent } from './about/about.component';
-import { BlogComponent } from './blog/blog.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from './product/product.component';
@@ -39,8 +39,7 @@ import { OrderComponent } from './order/order.component';
 
     PaymentComponent,
     PaymentCheckoutComponent,
-    AboutComponent,
-    BlogComponent,
+    AboutUsComponent,
     ContactUsComponent,
 
     ProductComponent,
