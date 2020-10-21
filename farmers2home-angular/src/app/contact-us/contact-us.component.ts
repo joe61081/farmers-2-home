@@ -29,7 +29,7 @@ export class ContactUsComponent implements OnInit {
 
 
   addContactDetails(newContact: Contact){
-    this.contacService.addContactDetails(newContact);
+    this.ContactService.addContactDetails(newContact);
     this.router.navigate(['cotact-us']);
   }
   
