@@ -13,9 +13,6 @@ import com.mastek.farmers2home.customer.CustomerJPADAO;
 import com.mastek.farmers2home.customer.CustomerService;
 import com.mastek.farmers2home.order.OrderJPADAO;
 import com.mastek.farmers2home.order.OrderService;
-import com.mastek.farmers2home.payment.Payment;
-import com.mastek.farmers2home.payment.PaymentJPADAO;
-import com.mastek.farmers2home.payment.PaymentService;
 
 
 @RunWith(SpringRunner.class)
@@ -41,19 +38,22 @@ public class PaymentTest {
 		Payment payment = new Payment();
 		
 		payment.setFirstName("Mary");
+		payment.setTotalPaid(50);
+		payment.setPaymentType(PaymentType.DEBIT);
 		payment.setLastName("Hubbert");
 		payment.setEmail("maryhubbert@gmail.com");
 		payment.setAddress("123 George Street");
 		payment.setCity("Wakefield");
 		payment.setCounty("WestYorkshire");
 		payment.setPostCode("WF9 9AY");
-		payment.setPaymentType("Test");
+		// payment.setPaymentType("Test");
 		payment.setNameOnCard("Mary Hubbert");
 		payment.setCardNumber("444523447");
 		payment.setExpiryMonth("September");
 		payment.setExpiryYear("2023");
+
 		payment.setCvv("345");
-		payment.setPaymentDate("13/10/2020");
+		// payment.setPaymentDate("13/10/2020");
 		payment.setShippingMethod("Shippingmethod.FirstClassRecorded");
 		
 		payment = paymentdao.save(payment);

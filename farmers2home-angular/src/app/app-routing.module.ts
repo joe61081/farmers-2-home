@@ -15,10 +15,13 @@ import { from } from 'rxjs';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ProductComponent } from './product/product.component';
 import { OrderComponent } from './order/order.component';
+import { compileComponentFromMetadata } from '@angular/compiler';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 const routes: Routes = [
   { path: 'product', component: ProductComponent},
+  {path: 'about-us', component: AboutUsComponent},
   
   { path: 'customer', component: CustomerComponent,
   children: [
@@ -63,8 +66,10 @@ const routes: Routes = [
     component: ContactUsComponent},
     
   {path: 'order', component: OrderComponent}
-  ];
   
+]
+  
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

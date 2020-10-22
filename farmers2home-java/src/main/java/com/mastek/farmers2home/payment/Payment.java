@@ -2,8 +2,6 @@
 package com.mastek.farmers2home.payment;
 
 
-import com.mastek.farmers2home.order.Order;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +13,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlTransient;
+
+import com.mastek.farmers2home.order.Order;
 
 @Entity
 @Table(name="payment")
@@ -61,7 +61,29 @@ public class Payment {
 	@FormParam("shippingMethod")
 	private String shippingMethod;
 
+	@FormParam("paymentType")
+	PaymentType paymentType;
+
+	@FormParam("totalPaid")
+	private int totalPaid;
+
 	//RELATIONSHIPS 
+
+	public PaymentType getPaymentType() {
+		return paymentType;
+	}
+
+	public void setPaymentType(PaymentType paymentType) {
+		this.paymentType = paymentType;
+	}
+
+	public int getTotalPaid() {
+		return totalPaid;
+	}
+
+	public void setTotalPaid(int totalPaid) {
+		this.totalPaid = totalPaid;
+	}
 
 	private Order orderAssigned;
 

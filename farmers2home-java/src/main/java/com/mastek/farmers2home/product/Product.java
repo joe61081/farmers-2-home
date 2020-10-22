@@ -11,12 +11,18 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlTransient;
 
+import org.springframework.data.annotation.Transient;
+
+import com.mastek.farmers2home.basket.Basket;
+import com.mastek.farmers2home.customer.Customer;
 import com.mastek.farmers2home.farmer.Farmer;
 import com.mastek.farmers2home.order.OrderItem;
 
@@ -40,7 +46,36 @@ public class Product {
 	@FormParam(value = "stockQuantity")
 	int stockQuantity;
 
+	Set<Basket> basketProducts = new HashSet<>();
+
+	@ManyToMany(mappedBy = "productsAssignedToBasket")
+	@XmlTransient
+	public Set<Basket> getBasketProducts() {
+		return basketProducts;
+	}
+
+	public void setBasketProducts(Set<Basket> basketProducts) {
+		this.basketProducts = basketProducts;
+	}
+
+	Set<Customer> customerProducts = new HashSet<>();
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "customer_products", joinColumns = { @JoinColumn(name = "fk_customerId") }, inverseJoinColumns = {
+			@JoinColumn(name = "fk_productId") })
+
+	@Transient
+	@XmlTransient
+	public Set<Customer> getCustomerProducts() {
+		return customerProducts;
+	}
+
+	public void setCustomerProducts(Set<Customer> customerProducts) {
+		this.customerProducts = customerProducts;
+	}
+
 	Set <OrderItem> orderItemAssigned = new HashSet<>();
+
+
 
 	Set <Farmer> farmerAssigned = new HashSet<>();
 

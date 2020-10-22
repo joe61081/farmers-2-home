@@ -11,3 +11,9 @@ h2{
 .card{
     border-radius: 25px;
 }
+.farmer-login{
+    border-top: 2cm;
+    border-style: ridge;
+    border-color: green;
+    margin-top: 1cm;
+}

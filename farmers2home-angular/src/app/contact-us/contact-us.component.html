@@ -1,17 +1,22 @@
-<p>contact-us works!</p>
+<body class="contact-page">
+  
 
-<h1>Phone number: +44 7911 123456</h1>
+<h1 class="heading-contact">Contact Us </h1>
 
+<h2 class="contact-details">Phone number: +44 7911 123456</h2>
+<h2 class="contact-details">Email: farmers2home@example.com</h2>
+<h2 class="contact-details">Address: 123 Farmhouse Road, Ilkley, IL79TJ</h2>
+<br>
+ <p class="message"> Or alternativley leave us a message below and we will get back to you shortly!</p>
 <!-- form goes here -->
-<form>
+<form class="contact-form">
 
     <!-- name -->
     <div class="field">
       <input type="text" name="name" class="input" placeholder="Your Name">
     </div>
   
-    <!-- email -->
-    <div class="field">
+     <div class="field">
       <input type="email" name="email" class="input" placeholder="Your Email">
     </div>
   
@@ -19,8 +24,10 @@
     <div class="field">
       <textarea class="textarea" name="message" placeholder="What's on your mind?"></textarea>
     </div>
-  
-    <button type="submit" class="button is-danger is-large">Submit</button>
+  <br>
+    <button type="submit" class="submit-button" (click)="submitForm" >Submit</button>
   
   </form>
+  <br>
 
+</body>

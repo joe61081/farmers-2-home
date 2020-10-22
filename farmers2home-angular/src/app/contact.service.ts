@@ -34,6 +34,7 @@ export class ContactService {
    params.set('message', newContact.message)
 
    return 
+
 //    return this.httpsvc.post<Contact>(this.rootURL+"/contact", params.toString(), httpOpts).subscribe(
 //      (res) => console.log(res),
 //      (err) => console.log(err)
@@ -41,6 +42,38 @@ export class ContactService {
 
 //   }
 // }
-  }}
-   
+  }
+
+  submitForm(contactName: string, contactEmail:string, contactMessage:string):Observable<Contact[]>{
+    const httpOpts ={
+      headers: new HttpHeaders(
+
+        {'Content-Type':
+        'application/x-www-form-urlencoded;charset=UTF-8'})
+      }
+
+      var reqBody= "contactName="+contactName+"&contactEmail"+contactEmail+"&contactMessage"+contactMessage
+
+      return this.httpsvc.post<Contact[]>(
+        this.rootURL+"contact", reqBody, httpOpts
+      )
+
+    }
+    addContact(newContact: Contact): Observable<Contact>{
+      const httpOpts = {
+        headers: new HttpHeaders(
+          {'Content-Type':
+          'application/x-www-form-urlencoded;charset=UTF-8'})
+         }
+         var reqBody =
+         "contactName" +newContact.name+"contactEmail"+newContact.email+"contactMessage"+newContact.message
+
+         return this.httpsvc.post<Contact>(
+           this.rootURL+"contact/register", reqBody, httpOpts
+         )
+        
+      }
+    }
+  
+
 

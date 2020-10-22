@@ -14,6 +14,8 @@ export class ContactUsComponent implements OnInit {
 
   contactUsForm: FormGroup;
    submitted = false
+   contact:Contact[]
+   newContact: Contact[]
 
 //   name: string;
 //   email: string;
@@ -21,6 +23,7 @@ export class ContactUsComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private ContactService: ContactService, private router:Router) { 
 
+    this.contact=[]
   
   }
   emailsMatchValidator(form :FormGroup){
@@ -63,5 +66,14 @@ export class ContactUsComponent implements OnInit {
      }
    }
   
+// submitForm(contactName:string, contactEmail:string, contactMessage:string){
+//   this.ContactService.addContact(newContact).subscribe(
+//     res =>
+//     { newContact =res
+//       this.ContactService.submitForm(newContact.name, newContact.email, newContact.message).subscribe(
+//         res => {
+//           this.contact = res
+//         })
+//       })}}
 
-}
+  }
