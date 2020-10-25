@@ -19,8 +19,10 @@ import { AboutUsComponent } from './about-us/about-us.component';
 
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CommonModule } from '@angular/common';
-import { ProductComponent } from './product/product.component';
+// import { ProductComponent } from './product/product.component';
 import { OrderComponent } from './order/order.component';
+import { HomeComponent } from './home/home.component';
+
 
 
 @NgModule({
@@ -42,9 +44,13 @@ import { OrderComponent } from './order/order.component';
     AboutUsComponent,
     ContactUsComponent,
 
-    ProductComponent,
+    // ProductComponent,
 
-    OrderComponent
+    OrderComponent,
+
+    HomeComponent,
+
+  
     
 
   ],

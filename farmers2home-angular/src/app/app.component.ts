@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { from } from 'rxjs';
 import { CustomerService } from './customer.service';
 import { FarmerService } from './farmer/farmer.service';
@@ -8,7 +9,14 @@ import { PaymentService} from './payment/payment.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  // templateUrl: './app.component.html'
+  template: `
+  <router-outlet></router-outlet> 
+  `,
+  styles: []
+  
+
+  
 })
 export class AppComponent {
   title = 'farmers2home-angular';
