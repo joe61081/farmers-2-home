@@ -1,7 +1,13 @@
 h1 {
     text-align: center;
 }
-.farmer{
+.add-new-product{
+    align-self: center;
+    margin-left: 16cm;
+    background-color:transparent;
+    
+}
+/* .farmer{
     border-top: 2cm;
     border-style: ridge;
     border-color: green;
@@ -15,4 +21,4 @@ h1 {
     background-color: green;
     color: white;
 
-}
+} */

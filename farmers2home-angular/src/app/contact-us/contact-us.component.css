@@ -3,7 +3,7 @@
     font-size: 1.5cm;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    color: green;
+    color: #82ae46;
     
 }
 
@@ -11,13 +11,13 @@
     font-size: 0.5cm;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    color: lightseagreen;
+    color: grey;
 }
 .message{
     font-size: 0.5cm;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    color: lightseagreen;
+    color: grey;
 
 }
 .contact-form{
